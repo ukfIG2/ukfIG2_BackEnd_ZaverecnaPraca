@@ -1,1 +1,1 @@
-# ukfIG2_BackEnd_ZaverecnaSprava
+# ukfIG2_BackEnd_ZaverecnaPraca
