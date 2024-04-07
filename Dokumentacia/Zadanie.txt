@@ -12,24 +12,24 @@ X    Administrátor - používateľ schopný vkladať obsah
 #Základné funkčné požiadavky
 #
 X    Aplikácia musí obsahovať prihlasovanie/registráciu administrátorov
-X    Administrátor musí vedieť vykonávať CRUD operácie pre stage
-X    Administrátor musí vedieť vykonávať CRUD operácie pre časové okná v existujúcich stagoch
+XX    Administrátor musí vedieť vykonávať CRUD operácie pre stage
+XX    Administrátor musí vedieť vykonávať CRUD operácie pre časové okná v existujúcich stagoch
 #
-X    Administrátor musí vedieť vykonávať CRUD operácie pre prednášky k jednotlivým speakrom - krátky popis/dlhý popis
-X    Administrátor musí vedieť prideľovať prednášky do jednotlivých časových slotov
+XX    Administrátor musí vedieť vykonávať CRUD operácie pre prednášky k jednotlivým speakrom - krátky popis/dlhý popis      | Krátky dlhý poopis pre prednášku aj pre speakra?
+XX    Administrátor musí vedieť prideľovať prednášky do jednotlivých časových slotov
 #
-X    Administrátor musí vedieť vykonávať CRUD operácie pre profily speakerov - obrázok/krátky popis/dlhý popis/linky na sociálne siete
-X    Administrátor musí vedieť vytvoriť sponzora
-X    Administrátor musí mať možnosť vytvorenia galérie - kategorické rozdelenie na ročníky
+XX    Administrátor musí vedieť vykonávať CRUD operácie pre profily speakerov - obrázok/krátky popis/dlhý popis/linky na sociálne siete
+XX    Administrátor musí vedieť vytvoriť sponzora
+XX    Administrátor musí mať možnosť vytvorenia galérie - kategorické rozdelenie na ročníky
 #
-X    Používateľ sa musí vedieť zaregistrovať na konferenciu
+XX    Používateľ sa musí vedieť zaregistrovať na konferenciu
 X    Po registrácii je potrebné aby prišiel registračný email na predvolenú adresu ako aj na adresu používateľa
-X    Používateľ sa musí vedieť odhlásiť s konferencie
-X    Administrátor musí vedieť kto sa na danú konferenciu zaregistroval
-X    Používateľ pri prihlasovaní sa na konferenciu musí mať možnosť výberu s jednotlivých prednášok - validácia časových okien (nedovoliť vybrať 2 prednášky v tom istom čase)
+XX    Používateľ sa musí vedieť odhlásiť s konferencie
+XX    Administrátor musí vedieť kto sa na danú konferenciu zaregistroval
+XX    Používateľ pri prihlasovaní sa na konferenciu musí mať možnosť výberu s jednotlivých prednášok - validácia časových okien (nedovoliť vybrať 2 prednášky v tom istom čase)
 
-X    Administrátor musí mať možnosť nastavovať kapacitu jednotlivých prednášok - toto sa musí prejavovať aj pri registrácii
-X    Administrátor musí vedieť vykonávať CRUD operácie nad sekciou Povedali o nás - foto, výrok
+XX    Administrátor musí mať možnosť nastavovať kapacitu jednotlivých prednášok - toto sa musí prejavovať aj pri registrácii
+XX    Administrátor musí vedieť vykonávať CRUD operácie nad sekciou Povedali o nás - foto, výrok                             |   Povedali o n8s rie3i iba administrátor? Recenzie ništ?
 X    Administrátor musí vedieť za pomoci WYSIWYG editora vytvárať custom stránky - príklad Ochrana osobných údajov
     Všetky obsahové sekcie ktoré administrátor vie vytvoriť musia byť prístupné pre používateľov
 #
