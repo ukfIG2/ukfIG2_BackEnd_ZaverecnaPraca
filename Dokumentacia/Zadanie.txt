@@ -66,3 +66,6 @@ Spôsob hodnotenia:
     Komplexné využitie RESTful architektúry (oddelenie vizuálu do externej aplikácie, modely budú obsahovať len business logiku atď.) - 50 bodov
 
     Využitie Vue.js pri tvorbe vizuálneho UI - 20 bodov
+
+
+    model view controler
