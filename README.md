@@ -41,5 +41,9 @@ Máme lokálne urobené zmeny projektu, ktoré chceme odovzdať do projektu. Zá
 git push
 ```
 		Podľa softvéru môže vyžadovať dodatočný krok k push-nutiu.
-####		07.
+####		07.Prejdeš na github
+```
+https://github.com/ukfIG2/ukfIG2_BackEnd_ZaverecnaPraca
+```
+		Na lište hore pôjdeš do _"Pull request"_ 
 
