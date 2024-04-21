@@ -46,9 +46,9 @@ Podľa softvéru môže vyžadovať dodatočný krok k push-nutiu.
 https://github.com/ukfIG2/ukfIG2_BackEnd_ZaverecnaPraca
 ```
 Na lište hore pôjdeš do _"Pull request"_  -> _New pull request_ -> Zvolíš si branch-u ktorú chceš odovzdať(merg-nuť) -> Zvolíš _Create pull request_ -> _Merge pull request_ -> _Confirm merge_ -> _Delete branch_
-![Obrazok 1](Dokumentacia/Pull_reqeust_Compare_changes.png)
-![Obrazok 2](Dokumentacia/Pull_reqeust_Compare_changes2.png)
-![Obrazok 3](Dokumentacia/Pull_reqeust_Compare_changes3.png)
+![Obrazok 1](Dokumentacia/Obrazky/Pull_reqeust_Compare_changes.png)
+![Obrazok 2](Dokumentacia/Obrazky/Pull_reqeust_Compare_changes2.png)
+![Obrazok 3](Dokumentacia/Obrazky/Pull_reqeust_Compare_changes3.png)
 
 ####		08.	Odporúčam prepnúť sa do main branche a vymazať branchu v ktorej si robil
 ``` console
