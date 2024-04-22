@@ -12,16 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Social_site', function (Blueprint $table) {
-            #$table->id();
             $table->bigIncrements('idSocial_site');
-            $table->timestamps();
-            $table->string('Title', 50);
-            $table->string('Url', 100);
-            //goreign key images
-            $table->unsignedBigInteger('idImages');
+            $table->string('Title', 100)->unique();
+            $table->string('Url', 100)->nullable();
+
+            $table->unsignedBigInteger('idImages')->nullable();
             $table->foreign('idImages')->references('idImages')->on('Images');
             
-
+            $table->timestamps();
         });
     }
 

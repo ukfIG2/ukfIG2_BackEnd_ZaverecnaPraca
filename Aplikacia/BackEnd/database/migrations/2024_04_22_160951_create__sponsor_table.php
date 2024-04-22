@@ -12,20 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Sponsor', function (Blueprint $table) {
-            #$table->id();
             $table->bigIncrements('idSponsor');
-            $table->timestamps();
             $table->string('Sponsor_name', 100);
-            $table->string('Url', 100);
-            //comment text
-            $table->text('Comment')->nullable();
-            //foreign key to conference
+            $table->string('Url', 100)->nullable();
+
             $table->unsignedBigInteger('idConference');
             $table->foreign('idConference')->references('idConference')->on('Conference');
-            //foreign key to images
-            $table->unsignedBigInteger('idImages');
+
+            $table->unsignedBigInteger('idImages')->nullable();
             $table->foreign('idImages')->references('idImages')->on('Images');
-            
+
+            $table->text('Comment')->nullable();
+            $table->timestamps();
         });
     }
 

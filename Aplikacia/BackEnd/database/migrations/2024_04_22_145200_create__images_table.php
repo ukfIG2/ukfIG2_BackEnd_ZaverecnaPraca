@@ -12,12 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Images', function (Blueprint $table) {
-            #$table->id();
             $table->bigIncrements('idImages');
-            $table->timestamps();
             $table->string('Title', 100);
             $table->string('Path_to', 100);
             $table->string('ALT', 255);
+            $table->timestamps();
         });
     }
 

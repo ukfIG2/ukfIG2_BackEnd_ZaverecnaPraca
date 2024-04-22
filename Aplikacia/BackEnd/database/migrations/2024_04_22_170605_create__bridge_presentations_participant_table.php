@@ -12,13 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Bridge_presentations_participant', function (Blueprint $table) {
-            #$table->id();
-            $table->timestamps();
-            //foreign key presentations participants
+            $table->bigIncrements('idBridge');
+
             $table->unsignedBigInteger('idPresentations');
             $table->foreign('idPresentations')->references('idPresentations')->on('Presentations');
+
             $table->unsignedBigInteger('idParticipant');
             $table->foreign('idParticipant')->references('idParticipant')->on('Participants');
+
+            $table->timestamps();
         });
     }
 

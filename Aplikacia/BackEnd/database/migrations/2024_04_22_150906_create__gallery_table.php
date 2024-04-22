@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Gallery', function (Blueprint $table) {
-            #$table->id();
             $table->bigIncrements('idGallery');
-            $table->timestamps();
-            //foreign key on conference
+
             $table->unsignedBigInteger('idConference');
             $table->foreign('idConference')->references('idConference')->on('Conference');
-            //foreign key on umages
+
             $table->unsignedBigInteger('idImages');
             $table->foreign('idImages')->references('idImages')->on('Images');
+
+            $table->timestamps();
         });
     }
 

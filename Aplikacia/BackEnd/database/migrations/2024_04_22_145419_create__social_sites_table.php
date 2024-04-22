@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Social_sites', function (Blueprint $table) {
-            #$table->id();
             $table->bigIncrements('idSocial_sites');
-            $table->timestamps();
             $table->string('Account', 50);
-            //foreing key of social site
+            
             $table->unsignedBigInteger('idSocial_site');
             $table->foreign('idSocial_site')->references('idSocial_site')->on('Social_site');
+
+            $table->timestamps();
         });
     }
 

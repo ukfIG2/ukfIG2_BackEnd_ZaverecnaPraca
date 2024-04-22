@@ -12,18 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Time_tables', function (Blueprint $table) {
-            #$table->id();
-            $table->bigIncrements('idTime_table');
-            $table->timestamps();
-            //Create Time_start Time
+            $table->bigIncrements('idTime_tables');
             $table->time('Time_start');
-            //Create Time_end Time
             $table->time('Time_end');
-            //foreign key to stage
+
             $table->unsignedBigInteger('idStage');
             $table->foreign('idStage')->references('idStage')->on('Stage');
-            //Comment
+            
             $table->text('Comment')->nullable();
+            $table->timestamps();
         });
     }
 

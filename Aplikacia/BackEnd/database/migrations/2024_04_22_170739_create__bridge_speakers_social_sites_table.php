@@ -12,14 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Bridge_speakers_socialSites', function (Blueprint $table) {
-            #$table->id();
-            $table->bigIncrements('idBridge_speakers_socialSites');
-            $table->timestamps();
-            //foreign key speakers socialsites
+            $table->bigIncrements('idBridge');
+
             $table->unsignedBigInteger('idSpeakers');
             $table->foreign('idSpeakers')->references('idSpeakers')->on('Speakers');
+
             $table->unsignedBigInteger('idSocial_sites');
             $table->foreign('idSocial_sites')->references('idSocial_sites')->on('Social_sites');
+
+            $table->timestamps();
         });
     }
 

@@ -12,14 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Administration', function (Blueprint $table) {
-            #$table->id();
             $table->bigIncrements('idAdministration');
-            $table->timestamps();
             $table->string('Login', 50);
-            $table->string('Password', 126);
-            //comment
+            $table->string('Password', 128);
             $table->text('Comment')->nullable();
-            
+            $table->timestamps();
         });
     }
 

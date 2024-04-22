@@ -12,22 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Presentations', function (Blueprint $table) {
-            #$table->id();
             $table->bigIncrements('idPresentations');
-            $table->timestamps();
-            //Name varhcar 100
             $table->string('Name', 100);
-            //short description text
-            $table->text('Short_description');
-            //long description text
-            $table->text('Long_description');
-            //Max Capacitz int
+            $table->text('Short_description')->nullable();
+            $table->text('Long_description')->nullable();
             $table->integer('Max_capacity');
-            //Add foreign key to Stage
-            $table->unsignedBigInteger('idTime_table');
-            $table->foreign('idTime_table')->references('idTime_table')->on('Time_tables');
-            // comment
+
+            $table->unsignedBigInteger('idTime_tables');
+            $table->foreign('idTime_tables')->references('idTime_tables')->on('Time_tables');
+
             $table->text('Comment')->nullable();
+            $table->timestamps();
+
         });
     }
 

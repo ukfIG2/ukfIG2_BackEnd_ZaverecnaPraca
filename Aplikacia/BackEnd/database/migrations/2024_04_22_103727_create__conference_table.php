@@ -11,20 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Conference', function (Blueprint $table) {
-            #$table->id();
-            
+        Schema::create('Conference', function (Blueprint $table) {       
             $table->bigIncrements('idConference');
-
-            $table->timestamps();
-            //How to write to create a column in a table Varchar(100) name Title and NotNull
             $table->string('Title', 100);
-            //How to write to create a column in a table name Date format date
             $table->date('Date');
-            //How to write to create a column in a table name State format I need it to have 2 states in_progress and finished must not be null and default is in_progress
             $table->enum('State', ['In_progress', 'finished'])->default('In_progress');
-            //How to write to create a column in a table name Comment format text and can be null
             $table->text('Comment')->nullable();
+            $table->timestamps();
         });
     }
 
