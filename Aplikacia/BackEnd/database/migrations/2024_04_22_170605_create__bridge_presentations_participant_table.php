@@ -15,8 +15,8 @@ return new class extends Migration
             #$table->id();
             $table->timestamps();
             //foreign key presentations participants
-            $table->unsignedBigInteger('idPresentation');
-            $table->foreign('idPresentation')->references('idPresentation')->on('Presentations');
+            $table->unsignedBigInteger('idPresentations');
+            $table->foreign('idPresentations')->references('idPresentations')->on('Presentations');
             $table->unsignedBigInteger('idParticipant');
             $table->foreign('idParticipant')->references('idParticipant')->on('Participants');
         });

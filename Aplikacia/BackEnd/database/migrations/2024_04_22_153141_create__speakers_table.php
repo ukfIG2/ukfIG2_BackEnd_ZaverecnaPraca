@@ -22,7 +22,6 @@ return new class extends Migration
             $table->unsignedBigInteger('idFirst_name');
             $table->foreign('idFirst_name')->references('idFirst_name')->on('First_name');
             //foreign key middlename
-            $table->unsignedBigInteger('idMiddle_name');
             $table->unsignedBigInteger('idMiddle_name')->nullable();
             $table->foreign('idMiddle_name')->references('idMiddle_name')->on('Middle_name');
             //foreign key lastname

@@ -20,7 +20,6 @@ return new class extends Migration
             $table->foreign('idTitle')->references('idTitle')->on('Title');
             $table->unsignedBigInteger('idFirst_name');
             $table->foreign('idFirst_name')->references('idFirst_name')->on('First_name');
-            $table->unsignedBigInteger('idMiddle_name');
             $table->unsignedBigInteger('idMiddle_name')->nullable();
             $table->foreign('idMiddle_name')->references('idMiddle_name')->on('Middle_name');
             $table->unsignedBigInteger('idLast_name');

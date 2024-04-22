@@ -15,8 +15,8 @@ return new class extends Migration
             #$table->id();
             $table->bigIncrements('idAdministration');
             $table->timestamps();
-            $table->varchar('Login', 50);
-            $table->varchar('Password', 126);
+            $table->string('Login', 50);
+            $table->string('Password', 126);
             //comment
             $table->text('Comment')->nullable();
             

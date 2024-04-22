@@ -16,10 +16,10 @@ return new class extends Migration
             $table->bigIncrements('idBridge_speakers_socialSites');
             $table->timestamps();
             //foreign key speakers socialsites
-            $table->unsignedBigInteger('idSpeaker');
-            $table->foreign('idSpeaker')->references('idSpeaker')->on('Speakers');
-            $table->unsignedBigInteger('idSocialSites');
-            $table->foreign('idSocialSites')->references('idSocialSites')->on('SocialSites');
+            $table->unsignedBigInteger('idSpeakers');
+            $table->foreign('idSpeakers')->references('idSpeakers')->on('Speakers');
+            $table->unsignedBigInteger('idSocial_sites');
+            $table->foreign('idSocial_sites')->references('idSocial_sites')->on('Social_sites');
         });
     }
 

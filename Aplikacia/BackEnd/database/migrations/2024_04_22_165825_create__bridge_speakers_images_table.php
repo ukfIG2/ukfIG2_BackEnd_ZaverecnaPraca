@@ -16,8 +16,8 @@ return new class extends Migration
             $table->bigIncrements('idBridge');
             $table->timestamps();
             //foreign key speaker and images
-            $table->unsignedBigInteger('idSpeaker');
-            $table->foreign('idSpeaker')->references('idSpeaker')->on('Speakers');
+            $table->unsignedBigInteger('idSpeakers');
+            $table->foreign('idSpeakers')->references('idSpeakers')->on('Speakers');
             $table->unsignedBigInteger('idImages');
             $table->foreign('idImages')->references('idImages')->on('Images');
             
