@@ -20,6 +20,8 @@ return new class extends Migration
             $table->unsignedBigInteger('idSocial_sites');
             $table->foreign('idSocial_sites')->references('idSocial_sites')->on('Social_sites');
 
+            $table->string('Account', 100);
+
             $table->timestamps();
         });
     }

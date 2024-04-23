@@ -24,3 +24,6 @@ php artisan make:model Conference
 
 # Vytvoriť seeder
 php artisan make:seeder FullOneConference
+
+# Vytvoriť factory
+ php artisan make:factory MiddleNameFactory --model=Middle_name

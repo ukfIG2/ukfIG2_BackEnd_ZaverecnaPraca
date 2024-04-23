@@ -16,6 +16,7 @@ class Bridge_speakers_social_sites extends Model
     protected $fillable = [
         'idSpeakers',
         'idSocial_sites',
+        'Account',
     ];
 
     public function speaker()
