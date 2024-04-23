@@ -15,3 +15,6 @@ php artisan migrate
 
 # Obnovy migraciu so zmenami
 php aritsan migrate:fresh
+
+# Status migracie
+php artisan migrate:status
