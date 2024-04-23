@@ -18,3 +18,6 @@ php aritsan migrate:fresh
 
 # Status migracie
 php artisan migrate:status
+
+# Vytvoriť model
+php artisan make:model Conference
