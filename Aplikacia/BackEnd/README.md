@@ -21,3 +21,6 @@ php artisan migrate:status
 
 # Vytvoriť model
 php artisan make:model Conference
+
+# Vytvoriť seeder
+php artisan make:seeder FullOneConference
