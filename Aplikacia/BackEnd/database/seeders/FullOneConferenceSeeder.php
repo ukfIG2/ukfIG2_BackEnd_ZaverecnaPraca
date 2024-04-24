@@ -2,8 +2,36 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
+use App\Models\First_name; 
+use App\Models\Middle_name; 
+use App\Models\Last_name;
+use App\Models\Email;
+use App\Models\Company;
+use App\Models\Position;
+use App\Models\Title;
+use App\Models\Images;
+use App\Models\Social_site;
+use App\Models\Gallery;
+use App\Models\Speakers;
+use App\Models\Sponsor;
+use App\Models\Bridge_speakers_images;
+use App\Models\Bridge_presentations_speakers;
+use App\Models\Participants;
+use App\Models\Bridge_presentations_participant;
+use App\Models\Bridge_speakers_social_sites;
+use App\Models\Said_about_us;
+use App\Models\Administration;
+
+
+
+
+
 
 class FullOneConferenceSeeder extends Seeder
 {
@@ -13,22 +41,21 @@ class FullOneConferenceSeeder extends Seeder
     public function run(): void
     {
         // Insert a conference
-        $conferenceId = DB::table('conferences')->insertGetId([
-            'name' => 'DUMMY_NConnect2024',
+        $conferenceId = DB::table('Conference')->insertGetId([
+            'Title' => 'DUMMY_NConnect2024',
             'Date' => Carbon::now(),
             'Comment' => 'DUMMY_Comment',
         ]);
 
-        // Insert two stages
-        DB::table('Stage')->insert([
-            ['Name' => 'DUMMY_Stage1', 
-                'idConference' => $conferenceId, 
-                'Comment' => 'DUMMY_Comment1'],
-            ['Name' => 'DUMMY_Stage2', 
-                'idConference' => $conferenceId, 
-                    'Comment' => 'DUMMY_Comment2'],
-            // Add other necessary fields here...
-        ]);
+        /// Insert two stages and store their IDs
+        $stageIds = [];
+        for ($i = 1; $i <= 2; $i++) {
+            $stageIds[] = DB::table('Stage')->insertGetId([
+                'Name' => 'DUMMY_Stage' . $i,
+                'idConference' => $conferenceId,
+                'Comment' => 'DUMMY_Comment' . $i,
+    ]);
+}
 
         // Define time slots
         $timeSlots = [
@@ -45,26 +72,31 @@ class FullOneConferenceSeeder extends Seeder
         $indexTimeslots = 1; // Define $indexTimeslots before the loops
 
 
-        foreach ($stageIds as $stageId) {
-            foreach ($timeSlots as $timeSlot) {
-                DB::table('Time_tables')->insert([
-                    'Time_start' => $timeSlot['Time_start'],
-                    'Time_end' => $timeSlot['Time_end'],
-                    'idStage' => $stageId,
-                    'Comment' => $timeSlot['Comment'],
-                ]);
-                //insert presentations
-                DB::table('Presentations')->insert([
-                    'Name' => 'DUMMY_Presentation' . $index,
-                    'Short_description' => 'DUMMY_Short_description',
-                    'Long_description' => 'DUMMY_Long_description',
-                    'Max_capacity' => 100,
-                    'idTime_tables' => $timeTableId,
-                    'Comment' => 'DUMMY_Comment',
-                ]);
-                $indexTimeslots++; // Increment $indexTimeslots after each presentation
-            }
+            foreach ($stageIds as $stageId) {
+                foreach ($timeSlots as $timeSlot) {
+                    // Insert into Time_tables and store the ID
+                    $timeTableId = DB::table('Time_tables')->insertGetId([
+                        'Time_start' => $timeSlot['Time_start'],
+                        'Time_end' => $timeSlot['Time_end'],
+                        'idStage' => $stageId,
+                        'Comment' => $timeSlot['Comment'],
+        ]);
+
+        // Insert into Presentations
+        DB::table('Presentations')->insert([
+            'Name' => 'DUMMY_Presentation' . $indexTimeslots,
+            'Short_description' => 'DUMMY_Short_description',
+            'Long_description' => 'DUMMY_Long_description',
+            'Max_capacity' => rand(0, 100),
+            'idTime_tables' => $timeTableId,
+            'Comment' => 'DUMMY_Comment',
+        ]);
+
+        $indexTimeslots++; // Increment $indexTimeslots after each presentation
         }
+    }
+
+        
     
         First_name::factory()->count(10)->create();
         Middle_name::factory()->count(10)->create();
@@ -81,6 +113,12 @@ class FullOneConferenceSeeder extends Seeder
         Bridge_speakers_images::factory()->count(20)->create();
         Bridge_presentations_speakers::factory()->count(20)->create();
         Participants::factory()->count(100)->create();
+        Bridge_presentations_participant::factory()->count(100)->create();
+        Bridge_speakers_social_sites::factory()->count(5)->create();
+        Said_about_us::factory()->count(10)->create();
+        Administration::factory()->count(5)->create();
+        
+        
 
 
 

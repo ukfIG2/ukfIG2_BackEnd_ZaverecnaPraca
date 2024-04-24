@@ -11,7 +11,7 @@ use App\Models\Images;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Sponsor>
  */
-class DUMMY_SponsorFactory extends Factory
+class SponsorFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -21,8 +21,8 @@ class DUMMY_SponsorFactory extends Factory
     public function definition(): array
     {
         return [
-            'Sponsor_name' => $this->faker->company,
-            'Url' => $this->faker->url,
+            'Sponsor_name' => substr($this->faker->company, 0, 100),
+            'Url' => substr($this->faker->url, 0, 100),
             'idConference' => function() {
                 return Conference::all()->random()->idConference;
             },

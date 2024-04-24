@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Bridge_speakers_social_sites>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Last_name>
  */
-class DUMMY_BridgeSpeakersSocialSitesFactory extends Factory
+class Last_nameFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class DUMMY_BridgeSpeakersSocialSitesFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'Last_name' => substr($this->faker->lastName, 0, 25),
         ];
     }
 }

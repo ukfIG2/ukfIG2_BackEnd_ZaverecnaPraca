@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 use App\Models\Participants;
 use App\Models\Title;
-use App\Models\FirstName;
-use App\Models\MiddleName;
-use App\Models\LastName;
+use App\Models\First_name;
+use App\Models\Middle_name;
+use App\Models\Last_name;
 use App\Models\Conference;
 use App\Models\Email;
 
@@ -18,7 +18,7 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Participants>
  */
-class DUMMY_ParticipantsFactory extends Factory
+class ParticipantsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -32,13 +32,13 @@ class DUMMY_ParticipantsFactory extends Factory
                 return Title::all()->random()->idTitle;
             },
             'idFirst_name' => function() {
-                return FirstName::all()->random()->idFirst_name;
+                return First_name::all()->random()->idFirst_name;
             },
             'idMiddle_name' => function() {
-                return MiddleName::all()->random()->idMiddle_name;
+                return Middle_name::all()->random()->idMiddle_name;
             },
             'idLast_name' => function() {
-                return LastName::all()->random()->idLast_name;
+                return Last_name::all()->random()->idLast_name;
             },
             'idConference' => function() {
                 return Conference::all()->random()->idConference;

@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Middle_name>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Company>
  */
-class DUMMY_MiddleNameFactory extends Factory
+class CompanyFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class DUMMY_MiddleNameFactory extends Factory
     public function definition(): array
     {
         return [
-            'Middle_name' => $this->faker->name,
+            'Company_name' => substr($this->faker->company, 0, 100),
         ];
     }
 }

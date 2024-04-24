@@ -10,7 +10,7 @@ use App\Models\Images;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Bridge_speakers_images>
  */
-class DUMMY_BridgeSpeakersImagesFactory extends Factory
+class Bridge_speakers_imagesFactory extends Factory
 {
     /**
      * Define the model's default state.

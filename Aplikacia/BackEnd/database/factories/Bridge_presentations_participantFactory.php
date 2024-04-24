@@ -11,7 +11,7 @@ use App\Models\Participants;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Bridge_presentations_participant>
  */
-class DUMMY_BridgePresentationsParticipantFactory extends Factory
+class Bridge_presentations_participantFactory extends Factory
 {
     /**
      * Define the model's default state.

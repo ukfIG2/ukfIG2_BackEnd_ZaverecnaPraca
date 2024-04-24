@@ -3,15 +3,15 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
-use App\Models\Bridge_presentations_speakers;
-use App\Models\Presentations;
+use App\Models\Bridge_speakers_social_sites;
 use App\Models\Speakers;
+use App\Models\Social_site;
+
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Bridge_presentations_speakers>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Bridge_speakers_social_sites>
  */
-class DUMMY_BridgePresentationsSpeakersFactory extends Factory
+class Bridge_speakers_social_sitesFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -21,12 +21,13 @@ class DUMMY_BridgePresentationsSpeakersFactory extends Factory
     public function definition(): array
     {
         return [
-            'idPresentations' => function() {
-                return Presentations::all()->random()->idPresentations;
-            },
             'idSpeakers' => function() {
                 return Speakers::all()->random()->idSpeakers;
             },
+            'idSocial_site' => function() {
+                return Social_site::all()->random()->idSocial_site;
+            },
+            'Account' => $this->faker->word(),
         ];
     }
 }

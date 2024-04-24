@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Position>
  */
-class DUMMY_PositionFactory extends Factory
+class PositionFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class DUMMY_PositionFactory extends Factory
     public function definition(): array
     {
         return [
-            'Position_name' => $this->faker->jobTitle,
+            'Position_name' => substr($this->faker->jobTitle, 0, 100),
         ];
     }
 }

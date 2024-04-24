@@ -4,13 +4,14 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-use App\Models\Social_site;
+use App\Models\Gallery;
+use App\Models\Conference;
 use App\Models\Images;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Social_site>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Gallery>
  */
-class DUMMY_SocialSiteFactory extends Factory
+class GalleryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,13 +19,14 @@ class DUMMY_SocialSiteFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {
+    {   //toto hodi random zo zaznamov v tabulke Conference
         return [
-            'Title' => $this->faker->word,
-            'Url' => $this->faker->url,
+            'idConference' => function() {
+                return Conference::all()->random()->idConference;
+            },
             'idImages' => function() {
                 return Images::all()->random()->idImages;
-            },        
+            },
         ];
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Title>
  */
-class DUMMY_TitleFactory extends Factory
+class TitleFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,8 @@ class DUMMY_TitleFactory extends Factory
     public function definition(): array
     {
         return [
-            'Title' => $this->faker->jobTitle,
-            'Short_title' => $this->faker->jobTitle,
+            'Title' => substr($this->faker->jobTitle, 0, 25),
+            'Short_title' => substr($this->faker->jobTitle, 0, 25),
         ];
     }
 }

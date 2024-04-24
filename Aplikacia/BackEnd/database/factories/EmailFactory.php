@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\First_name>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Email>
  */
-class DUMMY_FirstNameFactory extends Factory
+class EmailFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class DUMMY_FirstNameFactory extends Factory
     public function definition(): array
     {
         return [
-            'First_name' => $this->faker->firstName,
+            'Email' => substr($this->faker->unique()->safeEmail, 0, 100),
         ];
     }
 }

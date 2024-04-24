@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Images>
  */
-class DUMMY_ImagesFactory extends Factory
+class ImagesFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -21,7 +21,7 @@ class DUMMY_ImagesFactory extends Factory
         return [
             'Title' => $title,
             'Path_to' => 'public/Images/DUMMY/' . $title,
-            'ALT' => $this->faker->sentence,
+            'ALT' => substr($this->faker->sentence, 0, 100),//skontrolovat funcnost
         ];
     }
 }
