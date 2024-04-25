@@ -35,3 +35,8 @@ php artisan migrate
 ## Naplniť databázu
 php artisan db:seed --class=FullOneConferenceSeeder
 
+# Ukázať štruktúru modelu
+php artisan model:show First_name
+
+# Vytvoriť Controller pre model
+php artisan make:controller ConferenceController --resource --model=Conference
