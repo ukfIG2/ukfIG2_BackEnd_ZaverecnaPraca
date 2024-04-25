@@ -45,6 +45,8 @@ class FullOneConferenceSeeder extends Seeder
             'Title' => 'DUMMY_NConnect2024',
             'Date' => Carbon::now(),
             'Comment' => 'DUMMY_Comment',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
 
         /// Insert two stages and store their IDs
@@ -54,6 +56,8 @@ class FullOneConferenceSeeder extends Seeder
                 'Name' => 'DUMMY_Stage' . $i,
                 'idConference' => $conferenceId,
                 'Comment' => 'DUMMY_Comment' . $i,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
     ]);
 }
 
@@ -80,6 +84,8 @@ class FullOneConferenceSeeder extends Seeder
                         'Time_end' => $timeSlot['Time_end'],
                         'idStage' => $stageId,
                         'Comment' => $timeSlot['Comment'],
+                        'created_at' => Carbon::now(),
+                        'updated_at' => Carbon::now(),
         ]);
 
         // Insert into Presentations
@@ -90,6 +96,8 @@ class FullOneConferenceSeeder extends Seeder
             'Max_capacity' => rand(0, 100),
             'idTime_tables' => $timeTableId,
             'Comment' => 'DUMMY_Comment',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
 
         $indexTimeslots++; // Increment $indexTimeslots after each presentation
