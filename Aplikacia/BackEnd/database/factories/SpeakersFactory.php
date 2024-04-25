@@ -29,7 +29,8 @@ class SpeakersFactory extends Factory
                 return Title::all()->random()->idTitle;
             },
             'idFirst_name' => function() {
-                return First_Name::all()->random()->idFirst_name;
+                //return First_Name::all()->random()->idFirst_name;
+                return First_name::all()->random()->idFirst_name;
             },
             'idMiddle_name' => function() {
                 return Middle_name::all()->random()->idMiddle_name;

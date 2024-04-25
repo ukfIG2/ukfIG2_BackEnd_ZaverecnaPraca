@@ -20,11 +20,11 @@ class Bridge_speakers_images extends Model
 
     public function speaker()
     {
-        return $this->belongsTo(Speaker::class, 'idSpeakers', 'idSpeakers');
+        return $this->belongsTo(Speakers::class, 'idSpeakers', 'idSpeakers');
     }
 
     public function image()
     {
-        return $this->belongsTo(Image::class, 'idImages', 'idImages');
+        return $this->belongsTo(Images::class, 'idImages', 'idImages');
     }
 }

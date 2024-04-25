@@ -25,6 +25,6 @@ class Gallery extends Model
 
     public function image()
     {
-        return $this->belongsTo(Image::class, 'idImages', 'idImages');
+        return $this->belongsTo(Images::class, 'idImages', 'idImages');
     }
 }

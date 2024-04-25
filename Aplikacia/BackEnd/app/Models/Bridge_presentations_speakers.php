@@ -20,11 +20,11 @@ class Bridge_presentations_speakers extends Model
 
     public function presentation()
     {
-        return $this->belongsTo(Presentation::class, 'idPresentations', 'idPresentations');
+        return $this->belongsTo(Presentations::class, 'idPresentations', 'idPresentations');
     }
 
     public function speaker()
     {
-        return $this->belongsTo(Speaker::class, 'idSpeakers', 'idSpeakers');
+        return $this->belongsTo(Speakers::class, 'idSpeakers', 'idSpeakers');
     }
 }

@@ -30,17 +30,17 @@ class Participants extends Model
 
     public function firstName()
     {
-        return $this->belongsTo(FirstName::class, 'idFirst_name', 'idFirst_name');
+        return $this->belongsTo(First_name::class, 'idFirst_name', 'idFirst_name');
     }
 
     public function middleName()
     {
-        return $this->belongsTo(MiddleName::class, 'idMiddle_name', 'idMiddle_name');
+        return $this->belongsTo(Middle_name::class, 'idMiddle_name', 'idMiddle_name');
     }
 
     public function lastName()
     {
-        return $this->belongsTo(LastName::class, 'idLast_name', 'idLast_name');
+        return $this->belongsTo(Last_name::class, 'idLast_name', 'idLast_name');
     }
 
     public function conference()

@@ -20,11 +20,11 @@ class Bridge_presentations_participant extends Model
 
     public function presentation()
     {
-        return $this->belongsTo(Presentation::class, 'idPresentations', 'idPresentations');
+        return $this->belongsTo(Presentations::class, 'idPresentations', 'idPresentations');
     }
 
     public function participant()
     {
-        return $this->belongsTo(Participant::class, 'idParticipants', 'idParticipants');
+        return $this->belongsTo(Participants::class, 'idParticipants', 'idParticipants');
     }
 }

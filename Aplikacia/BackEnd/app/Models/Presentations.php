@@ -24,7 +24,7 @@ class Presentations extends Model
 
     public function timetable()
     {
-        return $this->belongsTo(TimeTable::class, 'idTime_tables', 'idTime_tables');
+        return $this->belongsTo(TimeTables::class, 'idTime_tables', 'idTime_tables');
     }
     
 }

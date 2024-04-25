@@ -21,11 +21,11 @@ class Bridge_speakers_social_sites extends Model
 
     public function speaker()
     {
-        return $this->belongsTo(Speaker::class, 'idSpeakers', 'idSpeakers');
+        return $this->belongsTo(Speakers::class, 'idSpeakers', 'idSpeakers');
     }
 
     public function socialSite()
     {
-        return $this->belongsTo(SocialSite::class, 'idSocial_sites', 'idSocial_sites');
+        return $this->belongsTo(Social_site::class, 'idSocial_sites', 'idSocial_sites');
     }
 }
