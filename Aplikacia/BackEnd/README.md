@@ -27,3 +27,11 @@ php artisan make:seeder FullOneConference
 
 # Vytvoriť factory
  php artisan make:factory MiddleNameFactory --model=Middle_name
+
+# Sprevádzkovať backEnd
+## Vytvoriť databázu
+php artisan migrate
+
+## Naplniť databázu
+php artisan db:seed --class=FullOneConferenceSeeder
+
