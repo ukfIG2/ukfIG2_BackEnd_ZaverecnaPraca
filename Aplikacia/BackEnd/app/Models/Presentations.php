@@ -31,4 +31,9 @@ class Presentations extends Model
     {
         return $this->hasMany(Bridge_presentations_speakers::class, 'idBridge', 'idBridge');
     }   
+
+    public function bridge_presentations_participant()
+    {
+        return $this->hasMany(Bridge_presentations_participant::class, 'idBridge', 'idBridge');
+    }
 }

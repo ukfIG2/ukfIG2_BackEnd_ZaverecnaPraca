@@ -33,4 +33,14 @@ class Conference extends Model
         return $this->hasMany(Participants::class, 'idConference');
     }
 
+    public function sponsor()
+    {
+        return $this->hasMany(Sponsor::class, 'idConference');
+    }
+
+    public function galery()
+    {
+        return $this->hasMany(Gallery::class, 'idConference');
+    }
+
 }

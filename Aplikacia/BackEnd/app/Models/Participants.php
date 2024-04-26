@@ -52,4 +52,9 @@ class Participants extends Model
     {
         return $this->belongsTo(Email::class, 'idEmail', 'idEmail');
     }
+
+    public function bridge_presentations_participant()
+    {
+        return $this->hasMany(Bridge_presentations_participant::class, 'idParticipants', 'idParticipants');
+    }
 }

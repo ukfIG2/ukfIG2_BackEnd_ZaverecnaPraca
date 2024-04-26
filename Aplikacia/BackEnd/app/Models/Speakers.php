@@ -54,4 +54,19 @@ class Speakers extends Model
     {
         return $this->belongsTo(Company::class, 'idCompany', 'idCompany');
     }
+
+    public function bridge_presentations_speaker()
+    {
+        return $this->hasMany(Bridge_presentations_speakers::class, 'idSpeakers', 'idSpeakers');
+    }
+
+    public function bridge_speakers_socialsites()
+    {
+        return $this->hasMany(Bridge_speakers_social_sites::class, 'idSpeakers', 'idSpeakers');
+    }
+
+    public function bridge_speakers_images()
+    {
+        return $this->hasMany(Bridge_speakers_images::class, 'idSpeakers', 'idSpeakers');
+    }
 }

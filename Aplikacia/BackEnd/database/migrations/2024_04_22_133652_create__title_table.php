@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('Title', function (Blueprint $table) {
             $table->bigIncrements('idTitle');
-            $table->string('Title', 25)->unique();
-            $table->text('Short_title', 20)->unique();
+            $table->string('Title', 255)->unique();
+            $table->string('Short_title', 20)->unique();
             $table->timestamps();
         });
     }

@@ -24,5 +24,10 @@ class TimeTables extends Model
     {
         return $this->belongsTo(Stage::class, 'idStage', 'idStage');
     }
+
+    public function presentations()
+    {
+        return $this->hasMany(Presentations::class, 'idTime_tables', 'idTime_tables');
+    }
     
 }

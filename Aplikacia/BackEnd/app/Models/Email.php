@@ -21,4 +21,6 @@ class Email extends Model
     {
         return $this->hasMany(Participants::class, 'idEmail', 'idEmail');
     }
+
+
 }
