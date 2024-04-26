@@ -22,4 +22,15 @@ class Conference extends Model
     protected $casts = [
         'Date' => 'datetime',
     ];
+
+    public function stages()
+    {
+        return $this->hasMany(Stage::class, 'idConference');
+    }
+
+    public function participants()
+    {
+        return $this->hasMany(Participants::class, 'idConference');
+    }
+
 }

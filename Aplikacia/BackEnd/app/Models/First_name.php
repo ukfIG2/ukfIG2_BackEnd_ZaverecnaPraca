@@ -16,4 +16,20 @@ class First_name extends Model
     protected $fillable = [
         'First_name',
     ];
+
+    public function participants()
+    {
+        return $this->hasMany(Participants::class, 'idFirst_name', 'idFirst_name');
+    }
+
+    public function speakers()
+    {
+        return $this->hasMany(Speakers::class, 'idFirst_name', 'idFirst_name');
+    }
+
+    public function said_about_us()
+    {
+        return $this->hasMany(Said_about_us::class, 'idFirst_name', 'idFirst_name');
+    }
+
 }

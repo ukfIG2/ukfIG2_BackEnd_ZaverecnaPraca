@@ -17,4 +17,20 @@ class Title extends Model
         'Title',
         'Short_title',
     ];
+
+    public function participants()
+    {
+        return $this->hasMany(Participants::class, 'idTitle', 'idTitle');
+    }
+
+    public function speakers()
+    {
+        return $this->hasMany(Speakers::class, 'idTitle', 'idTitle');
+    }
+
+    public function said_about_us()
+    {
+        return $this->hasMany(Said_about_us::class, 'idTitle', 'idTitle');
+    }
+
 }

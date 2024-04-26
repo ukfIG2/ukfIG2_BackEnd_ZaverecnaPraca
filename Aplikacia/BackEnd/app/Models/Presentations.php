@@ -22,9 +22,13 @@ class Presentations extends Model
         'Comment',
     ];
 
-    public function timetable()
+    public function timetables()
     {
         return $this->belongsTo(TimeTables::class, 'idTime_tables', 'idTime_tables');
     }
-    
+
+    public function bridge_presentations_speakers()
+    {
+        return $this->hasMany(Bridge_presentations_speakers::class, 'idBridge', 'idBridge');
+    }   
 }

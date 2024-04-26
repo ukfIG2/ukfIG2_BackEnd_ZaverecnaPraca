@@ -18,4 +18,29 @@ class Images extends Model
         'Path_to',
         'ALT',
     ];
+
+    public function gallery()
+    {
+        return $this->hasMany(Gallery::class, 'idImages', 'idImages');
+    }
+
+    public function social_sites()
+    {
+        return $this->hasMany(Social_site::class, 'idImages', 'idImages');
+    }
+
+    public function bridge_speakers_images()
+    {
+        return $this->hasMany(Bridge_speakers_images::class, 'idImages', 'idImages');
+    }
+
+    public function sponsors()
+    {
+        return $this->hasMany(Sponsor::class, 'idImages', 'idImages');
+    }
+
+    public function said_about_us()
+    {
+        return $this->hasMany(Said_about_us::class, 'idImages', 'idImages');
+    }
 }

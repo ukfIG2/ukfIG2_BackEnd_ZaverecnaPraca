@@ -8,6 +8,8 @@
         <th scope="col">Date</th>
         <th scope="col">State</th>
         <th scope="col">Comment</th>
+        <th scope="col">Created At</th>
+        <th scope="col">Updated At</th>
       </tr>
     </thead>
     <tbody>
@@ -17,6 +19,8 @@
         <td>{{ new Date(conference.Date).toLocaleDateString() }}</td>
         <td>{{ conference.State }}</td>
         <td>{{ conference.Comment }}</td>
+        <td>{{ new Date(conference.created_at).toLocaleDateString() }}</td>
+        <td>{{ new Date(conference.updated_at).toLocaleDateString() }}</td>
       </tr>
     </tbody>
   </table>

@@ -16,4 +16,16 @@ class Position extends Model
     protected $fillable = [
         'Position_name',
     ];
+
+    public function speakers()
+    {
+        return $this->hasMany(Speakers::class, 'idPosition', 'idPosition');
+    }
+
+    public function said_about_us()
+    {
+        return $this->hasMany(Said_about_us::class, 'idPosition', 'idPosition');
+    }
+
+    
 }

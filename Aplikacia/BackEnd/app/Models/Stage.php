@@ -24,4 +24,9 @@ class Stage extends Model
         //                      class conference    stage             conference
         return $this->belongsTo(Conference::class, 'idConference', 'idConference');
     }
+
+    public function timeTables()
+    {   
+        return $this->hasMany(TimeTables::class, 'idStage', 'idStage');
+    }
 }

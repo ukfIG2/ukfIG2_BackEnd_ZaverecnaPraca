@@ -16,5 +16,19 @@ class Last_name extends Model
     protected $fillable = [
         'Last_name',
     ];
+
+    public function participants()
+    {
+        return $this->hasMany(Participants::class, 'idLast_name', 'idLast_name');
+    }
+
+    public function speakers()
+    {
+        return $this->hasMany(Speakers::class, 'idLast_name', 'idLast_name');
+    }
     
+    public function said_about_us()
+    {
+        return $this->hasMany(Said_about_us::class, 'idLast_name', 'idLast_name');
+    }
 }
