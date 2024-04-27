@@ -33,4 +33,9 @@ class Title extends Model
         return $this->hasMany(Said_about_us::class, 'idTitle', 'idTitle');
     }
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
+
 }

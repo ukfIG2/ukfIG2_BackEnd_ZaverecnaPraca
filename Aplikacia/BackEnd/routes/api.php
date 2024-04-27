@@ -14,6 +14,10 @@ use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\SaidAboutUsController;
 use App\Http\Controllers\ContactController;
 
+use App\Http\Controllers\TitleController;
+use App\Http\Controllers\FirstNameController;
+use App\Http\Controllers\MiddleNameController;
+use App\Http\Controllers\LastNameController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -39,3 +43,8 @@ Route::get('/images', [ImagesController::class, 'showAll']);
 Route::get('/gallery', [GalleryController::class, 'showAll']);
 Route::get('/sponsor', [SponsorController::class, 'showAll']);
 Route::get('/said_about_us', [SaidAboutUsController::class, 'showAll']);
+
+Route::get('/title', [TitleController::class, 'showAll']);
+Route::get('/first_name', [FirstNameController::class, 'showAll']);
+Route::get('/middle_name', [MiddleNameController::class, 'showAll']);
+Route::get('/last_name', [LastNameController::class, 'showAll']);

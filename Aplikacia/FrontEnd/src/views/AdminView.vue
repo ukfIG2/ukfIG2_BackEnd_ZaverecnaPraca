@@ -9,6 +9,11 @@ import AllImages from '../components/Tables/AllImages.vue'
 import AllGallery from '../components/Tables/AllGallery.vue'
 import AllSponsor from '../components/Tables/AllSponsor.vue'
 import AllSaidAboutUs from '../components/Tables/AllSaidAboutUs.vue'
+
+import AllFirstName from '../components/Tables/AllFirstName.vue'
+import AllTitle from '../components/Tables/AllTitle.vue'
+import AllMiddleName from '../components/Tables/AllMiddleName.vue'
+import AllLastName from '../components/Tables/AllLastName.vue'
 </script>
     
 <template>
@@ -24,7 +29,12 @@ import AllSaidAboutUs from '../components/Tables/AllSaidAboutUs.vue'
   <!--<AllImages/>-->
   <!--<AllGallery/>-->
   <!--<AllSponsor/>-->
-  <AllSaidAboutUs/>
+  <!--<AllSaidAboutUs/>-->
+
+  <AllTitle/>
+  <AllFirstName/>
+  <AllMiddleName/>
+  <AllLastName/>
 </template>
 
 <script>
