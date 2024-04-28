@@ -6,10 +6,11 @@ use App\Models\Presentations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB; // Import DB facade for query logging
+use App\Http\Resources\PresentationsAdminResource;
 
 class PresentationsController extends Controller
 {
-    public function showAll()
+    /*public function showAll()
     {
         // Enable query logging
         DB::enableQueryLog();
@@ -63,5 +64,11 @@ class PresentationsController extends Controller
         
 
         return response()->json($presentations);
+    }*/
+
+    public function showAll(){
+
+        $presentations = Presentations::with('speakers', 'timetables.stage.conference')->get();
+        return PresentationsAdminResource::collection($presentations);
     }
 }
