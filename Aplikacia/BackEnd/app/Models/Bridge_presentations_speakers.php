@@ -27,4 +27,5 @@ class Bridge_presentations_speakers extends Model
     {
         return $this->belongsTo(Speakers::class, 'idSpeakers', 'idSpeakers');
     }
+
 }

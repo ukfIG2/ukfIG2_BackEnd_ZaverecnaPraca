@@ -23,4 +23,14 @@ class Social_site extends Model
     {
         return $this->belongsTo(Images::class, 'idImages', 'idImages');
     }
+
+    public function bridge_speakers_social_site()
+    {
+        return $this->hasMany(Bridge_speakers_social_sites::class, 'idSocial_site', 'idSocial_site');
+    }
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
 }

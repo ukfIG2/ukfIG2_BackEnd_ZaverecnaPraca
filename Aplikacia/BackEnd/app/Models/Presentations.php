@@ -22,9 +22,28 @@ class Presentations extends Model
         'Comment',
     ];
 
-    public function timetable()
+    public function timetables()
     {
         return $this->belongsTo(TimeTables::class, 'idTime_tables', 'idTime_tables');
     }
-    
+
+    public function bridge_presentations_speakers()
+    {
+        return $this->hasMany(Bridge_presentations_speakers::class, 'idBridge', 'idBridge');
+    }   
+
+    public function bridge_presentations_participant()
+    {
+        return $this->hasMany(Bridge_presentations_participant::class, 'idBridge', 'idBridge');
+    }
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
+
+    public function speakers()
+    {
+        return $this->belongsToMany(Speakers::class, 'Bridge_presentations_speakers', 'idPresentations', 'idSpeakers');
+    }
 }

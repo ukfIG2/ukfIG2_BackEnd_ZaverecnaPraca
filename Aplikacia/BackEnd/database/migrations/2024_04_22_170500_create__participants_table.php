@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('Participants', function (Blueprint $table) {
             $table->bigIncrements('idParticipants');
         
-            $table->unsignedBigInteger('idTitle');
+            $table->unsignedBigInteger('idTitle')->nullable();
             $table->foreign('idTitle')->references('idTitle')->on('Title');
 
             $table->unsignedBigInteger('idFirst_name');

@@ -24,4 +24,14 @@ class Stage extends Model
         //                      class conference    stage             conference
         return $this->belongsTo(Conference::class, 'idConference', 'idConference');
     }
+
+    public function timeTables()
+    {   
+        return $this->hasMany(TimeTables::class, 'idStage', 'idStage');
+    }
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
 }

@@ -27,4 +27,9 @@ class Gallery extends Model
     {
         return $this->belongsTo(Images::class, 'idImages', 'idImages');
     }
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
 }

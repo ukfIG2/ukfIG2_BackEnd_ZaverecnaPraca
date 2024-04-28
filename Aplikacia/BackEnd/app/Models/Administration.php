@@ -24,4 +24,9 @@ class Administration extends Model
     {
         $this->attributes['Password'] = bcrypt($value);
     }
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
 }

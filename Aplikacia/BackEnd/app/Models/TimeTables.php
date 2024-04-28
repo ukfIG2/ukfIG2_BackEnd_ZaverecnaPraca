@@ -24,5 +24,15 @@ class TimeTables extends Model
     {
         return $this->belongsTo(Stage::class, 'idStage', 'idStage');
     }
+
+    public function presentations()
+    {
+        return $this->hasMany(Presentations::class, 'idTime_tables', 'idTime_tables');
+    }
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
     
 }
