@@ -15,6 +15,7 @@ class SponsorController extends Controller
         $sponsors->transform(function ($sponsor) {
             $sponsor->Conference = $sponsor->conference->Title ?? null;
             $sponsor->Image = $sponsor->image->Path_to ?? null;
+            $sponsor->Alt = $sponsor->image->ALT ?? null;
 
             unset($sponsor->conference, $sponsor->image);
 

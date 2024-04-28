@@ -18,11 +18,6 @@ class Conference extends Model
     // The attributes that are mass assignable.
     protected $fillable = ['Title', 'Date', 'State', 'Comment'];
 
-    // The attributes that should be cast to native types.
-    protected $casts = [
-        'Date' => 'datetime',
-    ];
-
     public function stages()
     {
         return $this->hasMany(Stage::class, 'idConference');
@@ -43,4 +38,8 @@ class Conference extends Model
         return $this->hasMany(Gallery::class, 'idConference');
     }
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
 }

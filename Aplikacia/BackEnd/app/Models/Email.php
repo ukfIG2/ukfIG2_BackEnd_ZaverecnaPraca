@@ -22,5 +22,10 @@ class Email extends Model
         return $this->hasMany(Participants::class, 'idEmail', 'idEmail');
     }
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
+
 
 }

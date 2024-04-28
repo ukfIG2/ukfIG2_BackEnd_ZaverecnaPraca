@@ -13,6 +13,8 @@ class TimeTablesController extends Controller
 
         $timeTables->each(function ($timeTable) {
             $timeTable->idStage = $timeTable->stage->Name;
+            $timeTable->idConference = $timeTable->stage->conference->Title; // Add this line
+
             unset($timeTable->stage);
         });
 

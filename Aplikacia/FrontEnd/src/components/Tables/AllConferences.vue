@@ -1,42 +1,52 @@
 <template>
-<div>
-    <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Date</th>
-        <th scope="col">State</th>
-        <th scope="col">Comment</th>
-        <th scope="col">Created At</th>
-        <th scope="col">Updated At</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="(conference, index) in conferences" :key="index">
-        <th scope="row">{{ index + 1 }}</th>
-        <td>{{ conference.Title }}</td>
-        <td>{{ new Date(conference.Date).toLocaleDateString() }}</td>
-        <td>{{ conference.State }}</td>
-        <td>{{ conference.Comment }}</td>
-        <td>{{ new Date(conference.created_at).toLocaleDateString() }}</td>
-        <td>{{ new Date(conference.updated_at).toLocaleDateString() }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <div class="border border-5 m-3">
+    <h2>Conferences</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>State</th>
+            <th>Comment</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="conference in conferences" :key="conference.idConference">
+            <td>{{ conference.idConference }}</td>
+            <td>{{ conference.Title }}</td>
+            <td>{{ conference.Date }}</td>
+            <td>{{ conference.State }}</td>
+            <td>{{ conference.Comment }}</td>
+            <td>{{ conference.created_at }}</td>
+            <td>{{ conference.updated_at }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-data() {
-  return {
-    conferences: [],
-  };
-},
-async created() {
-  const response = await fetch("http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/conferences");
-  this.conferences = await response.json();
-},
+  data() {
+    return {
+      conferences: [],
+    };
+  },
+  created() {
+    axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/conferences')
+      .then(response => {
+        this.conferences = response.data;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  },
 };
 </script>

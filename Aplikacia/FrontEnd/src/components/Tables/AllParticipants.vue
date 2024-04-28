@@ -1,5 +1,7 @@
 <template>
-    <table class="table">
+    <div class="border border-5 m-3">
+    <h2>Zaregistrovaný účastníci</h2>
+    <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -29,6 +31,7 @@
         </tr>
       </tbody>
     </table>
+  </div>
 </template>
 
 <script>

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Images;
+use App\Models\Position;
 use Illuminate\Http\Request;
 
-class ImagesController extends Controller
+class PositionController extends Controller
 {
     public function showAll()
     {
-        return Images::all();
+        return Position::all();
     }
 }

@@ -1,25 +1,31 @@
 <template>
-    <table class="table">
+  <div class="border border-5 m-3">
+    <h2>Gallery</h2>
+    <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Conference ID</th>
-          <th scope="col">Image ID</th>
-          <th scope="col">Image</th>
+          <th>ID</th>
+          <th>Conference Title</th>
+          <th>Image</th>
+          <th>Created At</th>
+          <th>Updated At</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="gallery in galleries" :key="gallery.idGallery">
           <td>{{ gallery.idGallery }}</td>
-          <td>{{ gallery.idConference }}</td>
-          <td>{{ gallery.idImages }}</td>
-          <td><img :src="'http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/' + gallery.image.Path_to" 
-            :alt="gallery.image.ALT"
-            style="width: 200px; height: 200px; object-fit: cover;">
-        </td>
+          <td>{{ gallery.conference_title }}</td>
+<td>
+  <img :src="'http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/' + gallery.image_path" 
+       :alt="gallery.image_alt" 
+       width="100" 
+       height="100">
+</td><td>{{ gallery.created_at }}</td>
+          <td>{{ gallery.updated_at }}</td>
         </tr>
       </tbody>
     </table>
+  </div>
 </template>
 
 <script>

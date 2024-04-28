@@ -69,4 +69,15 @@ class Speakers extends Model
     {
         return $this->hasMany(Bridge_speakers_images::class, 'idSpeakers', 'idSpeakers');
     }
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
+
+    public function presentations()
+    {
+        return $this->belongsToMany(Presentations::class, 'Bridge_presentations_speakers', 'idSpeakers', 'idPresentations');
+    }
+
 }

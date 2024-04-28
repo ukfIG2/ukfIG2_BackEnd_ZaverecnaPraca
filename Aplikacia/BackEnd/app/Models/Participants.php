@@ -57,4 +57,9 @@ class Participants extends Model
     {
         return $this->hasMany(Bridge_presentations_participant::class, 'idParticipants', 'idParticipants');
     }
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
 }

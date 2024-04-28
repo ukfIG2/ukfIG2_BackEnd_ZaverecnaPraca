@@ -26,4 +26,9 @@ class Company extends Model
     {
         return $this->hasMany(Said_about_us::class, 'idCompany', 'idCompany');
     }
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
 }

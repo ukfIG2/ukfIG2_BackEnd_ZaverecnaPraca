@@ -29,4 +29,9 @@ class Stage extends Model
     {   
         return $this->hasMany(TimeTables::class, 'idStage', 'idStage');
     }
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
 }

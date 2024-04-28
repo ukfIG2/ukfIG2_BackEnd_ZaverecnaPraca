@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Images;
+use App\Models\Company;
 use Illuminate\Http\Request;
 
-class ImagesController extends Controller
+class CompanyController extends Controller
 {
     public function showAll()
     {
-        return Images::all();
+        return Company::all();
     }
 }

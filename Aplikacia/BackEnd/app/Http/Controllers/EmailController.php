@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Images;
+use App\Models\Email;
 use Illuminate\Http\Request;
 
-class ImagesController extends Controller
+class EmailController extends Controller
 {
     public function showAll()
     {
-        return Images::all();
+        return Email::all();
     }
 }

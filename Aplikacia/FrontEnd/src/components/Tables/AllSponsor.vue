@@ -1,5 +1,7 @@
 <template>
-    <table class="table">
+    <div class="border border-5 m-3">
+    <h2>Sponzory</h2>
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>ID</th>
@@ -20,7 +22,8 @@
             <img 
               v-if="sponsor.Image" 
               :src="'http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/' + sponsor.Image" 
-              alt="Sponsor Image" 
+              :alt="sponsor.Alt"
+
               style="width: 200px; height: 200px; object-fit: cover;"
             >
           </td>
@@ -28,6 +31,7 @@
         </tr>
       </tbody>
     </table>
+  </div>
 </template>
 
 <script>
