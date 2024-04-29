@@ -37,7 +37,7 @@ export default {
     };
   },
   async created() {
-    const response = await axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/images');
+    const response = await axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/AllImages');
     this.records = response.data;
   },
 };

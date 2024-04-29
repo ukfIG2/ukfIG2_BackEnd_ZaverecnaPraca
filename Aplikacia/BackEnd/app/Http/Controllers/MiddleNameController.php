@@ -9,6 +9,7 @@ class MiddleNameController extends Controller
 {
     public function showAll()
     {
-        return response()->json(Middle_name::all());
+        return Middle_name::get(
+            ['idMiddle_name', 'Middle_name', 'created_at', 'updated_at']);
     }
 }

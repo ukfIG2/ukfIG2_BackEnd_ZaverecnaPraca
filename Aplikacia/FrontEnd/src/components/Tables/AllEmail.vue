@@ -32,7 +32,7 @@ export default {
     };
   },
   async created() {
-    const response = await axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/email');
+    const response = await axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/AllEmail');
     this.emails = response.data;
   },
 };

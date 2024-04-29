@@ -9,13 +9,15 @@ class StageController extends Controller
 {
     public function showAll()
     {
-        $stages = Stage::with('conference')->get();
-
-        $stages->each(function ($stage) {
-            $stage->idConference = $stage->conference->Title;
-            unset($stage->conference);
-    });
-
-    return response()->json($stages);
+        return Stage::with('conference')->get()->map(function ($stage) {
+            return [
+                'idStage' => $stage->idStage,
+                'Name' => $stage->Name,
+                'Title_of_conference' => $stage->conference->Title,
+                'Comment' => $stage->Comment,
+                'created_at' => $stage->created_at,
+                'updated_at' => $stage->updated_at,
+            ];
+        });
     }
 }

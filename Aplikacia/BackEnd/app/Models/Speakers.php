@@ -80,4 +80,13 @@ class Speakers extends Model
         return $this->belongsToMany(Presentations::class, 'Bridge_presentations_speakers', 'idSpeakers', 'idPresentations');
     }
 
+    public function images()
+    {
+        return $this->belongsToMany(Images::class, 'Bridge_speakers_images', 'idSpeakers', 'idImages');
+    }
+
+    public function social_sites()
+    {
+        return $this->belongsToMany(Social_site::class, 'Bridge_speakers_socialSites', 'idSpeakers', 'idSocial_site');
+    }
 }

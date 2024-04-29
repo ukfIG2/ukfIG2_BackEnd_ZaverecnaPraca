@@ -17,7 +17,9 @@
           <td>{{ site.idSocial_site }}</td>
           <td>{{ site.Title }}</td>
           <td><a :href="site.Url">{{ site.Url }}</a></td>
-          <td><img :src="'http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/' + site.Path_to" alt="Image" width="100" height="100"></td>
+            <td>
+            <h5>{{ site.Images.Title }}</h5>
+            <img :src="'http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/' + site.Images.Path_to" :alt="site.Images.ALT" width="100" height="100"></td>
           <td>{{ site.created_at }}</td>
           <td>{{ site.updated_at }}</td>
         </tr>
@@ -36,7 +38,7 @@ export default {
     };
   },
   async created() {
-    const response = await axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/social_site');
+    const response = await axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/AllSocial_site');
     this.socialSites = response.data;
   },
 };

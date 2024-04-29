@@ -9,6 +9,8 @@ class FirstNameController extends Controller
 {
     public function showAll()
     {
-        return response()->json(First_name::all());
+        return First_name::get(
+            ['idFirst_name', 'First_name', 'created_at', 'updated_at']
+        );
     }
 }

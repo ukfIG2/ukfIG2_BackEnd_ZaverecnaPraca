@@ -40,7 +40,7 @@ export default {
     };
   },
   created() {
-    axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/conferences')
+    axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/AllConferences')
       .then(response => {
         this.conferences = response.data;
       })

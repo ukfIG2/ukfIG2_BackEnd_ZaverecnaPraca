@@ -9,22 +9,27 @@ class SaidAboutUsController extends Controller
 {
         public function showAll()
         {
-            $saidAboutUsRecords = Said_about_us::with(['title', 'firstName', 'middleName', 'lastName', 'image'])
-            ->get();
-    
-            $saidAboutUsRecords->transform(function ($record) {
-                $record->Title = $record->title->Short_title ?? null;
-                $record->FirstName = $record->firstName->First_name ?? null;
-                $record->MiddleName = $record->middleName->Middle_name ?? null;
-                $record->LastName = $record->lastName->Last_name ?? null;
-                $record->Image = $record->image->Path_to ?? null;
-    
-                unset($record->title, $record->firstName, $record->middleName, $record->lastName, $record->image);
-    
-                return $record;
+            return Said_about_us::with('title', 'firstName', 'middleName',
+            'lastName')->get()->map(function ($said_about_us) {
+                return [
+                    'idSaid_about_us' => $said_about_us->idSaid_about_us,
+                    'Short_title' => $said_about_us->title->Short_title,
+                    'First_name' => $said_about_us->firstName->First_name,
+                    'Middle_name' => $said_about_us->middleName->Middle_name,
+                    'Last_name' => $said_about_us->lastName->Last_name,
+                    'Image' => $said_about_us->Image ? [
+                        'Title' => $said_about_us->Image->Title,
+                        'Path_to' => $said_about_us->Image->Path_to,
+                        'ALT' => $said_about_us->Image->ALT,
+                    ] : null,
+                    'Text' => $said_about_us->Text,
+                    'Company' => $said_about_us->Company->Company_name,
+                    'Position' => $said_about_us->Position->Position_name,
+                    'Comment' => $said_about_us->Comment,
+                    'created_at' => $said_about_us->created_at,
+                    'updated_at' => $said_about_us->updated_at,
+                ];
             });
-    
-            return response()->json($saidAboutUsRecords);
-        } 
+        }
     
 }

@@ -9,6 +9,8 @@ class PositionController extends Controller
 {
     public function showAll()
     {
-        return Position::all();
+        return Position::get(
+            ['idPosition', 'Position_name', 'created_at', 'updated_at']
+        );
     }
 }

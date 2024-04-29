@@ -1,6 +1,6 @@
 <template>
   <div class="border border-5 m-3">
-    <h2>Speakery</h2>
+    <h2>Speakers</h2>
     <div class="table-responsive">
       <table class="table table-striped">
       <thead>
@@ -17,11 +17,13 @@
           <th>Comment</th>
           <th>Created At</th>
           <th>Updated At</th>
+          <th>Images</th>
+          <th>Social Sites</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="speaker in speakers" :key="speaker.idSpeakers">
-          <td>{{ speaker.idSpeakers }}</td>
+          <td>{{ speaker.idSpeaker }}</td>
           <td>{{ speaker.Short_title }}</td>
           <td>{{ speaker.First_name }}</td>
           <td>{{ speaker.Middle_name }}</td>
@@ -33,6 +35,20 @@
           <td>{{ speaker.Comment }}</td>
           <td>{{ speaker.created_at }}</td>
           <td>{{ speaker.updated_at }}</td>
+          <td>
+            <ul>
+              <li v-for="image in speaker.Image" :key="image.Title">
+                {{ image.Title }}: {{ image.Path_to }}
+              </li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li v-for="site in speaker.Social_sites" :key="site.Title">
+                {{ site.Title }}: {{ site.Url }}
+              </li>
+            </ul>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -50,7 +66,7 @@ export default {
     };
   },
   created() {
-    axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/speakers')
+    axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/AllSpeakers')
       .then(response => {
         this.speakers = response.data;
       })

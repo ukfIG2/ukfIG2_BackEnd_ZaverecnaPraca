@@ -9,16 +9,18 @@ class SocialSiteController extends Controller
 {
     public function showAll()
     {
-        $socialSites = Social_site::with('image:idImages,Path_to')->get();
-
-        return $socialSites->map(function ($socialSite) {
+        return Social_site::with('image')->get()->map(function ($social_site) {
             return [
-                'idSocial_site' => $socialSite->idSocial_site,
-                'Title' => $socialSite->Title,
-                'Url' => $socialSite->Url,
-                'Path_to' => $socialSite->image->Path_to,
-                'created_at' => $socialSite->created_at,
-                'updated_at' => $socialSite->updated_at,
+                'idSocial_site' => $social_site->idSocial_site,
+                'Title' => $social_site->Title,
+                'Url' => $social_site->Url,
+                'created_at' => $social_site->created_at,
+                'updated_at' => $social_site->updated_at,
+                'Images' => $social_site->image ? [
+                    'Title' => $social_site->image->Title,
+                    'Path_to' => $social_site->image->Path_to,
+                    'ALT' => $social_site->image->ALT,
+                ] : null,
             ];
         });
     }

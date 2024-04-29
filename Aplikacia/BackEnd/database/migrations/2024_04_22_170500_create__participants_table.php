@@ -33,6 +33,7 @@ return new class extends Migration
             $table->foreign('idEmail')->references('idEmail')->on('Email');
         
             $table->string('Token', 255);
+            $table->text('Comment')->nullable();
             $table->timestamps();
         });
     }
