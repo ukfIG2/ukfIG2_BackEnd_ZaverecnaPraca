@@ -9,6 +9,8 @@ class AdministrationController extends Controller
 {
     public function showAll()
     {
-        return Administration::all();
+        return Administration::get(
+            ['idAdministration', 'Login', 'Password', 
+            'Comment', 'created_at', 'updated_at']);
     }
 }

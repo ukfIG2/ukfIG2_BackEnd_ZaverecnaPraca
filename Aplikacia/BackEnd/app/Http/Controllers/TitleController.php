@@ -9,6 +9,7 @@ class TitleController extends Controller
 {
     public function showAll()
     {
-        return response()->json(Title::all());
+        return Title::get(
+            ['idTitle', 'Title', 'Short_title', 'created_at', 'updated_at']);
     }
 }

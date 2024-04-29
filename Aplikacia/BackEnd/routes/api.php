@@ -10,17 +10,17 @@ use App\Http\Controllers\FirstNameController;
 use App\Http\Controllers\MiddleNameController;
 use App\Http\Controllers\LastNameController;
 
-use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\PositionController;
-use App\Http\Controllers\ImagesController;
-
-use App\Http\Controllers\SocialSiteController;
-use App\Http\Controllers\EmailController;
 
 use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\StageController;
 use App\Http\Controllers\TimeTablesController;
 use App\Http\Controllers\PresentationsController;
+
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\SocialSiteController;
+use App\Http\Controllers\EmailController;
 
 use App\Http\Controllers\SpeakersController;
 use App\Http\Controllers\ParticipantsController;
@@ -44,31 +44,30 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('administration', [AdministrationController::class, 'showAll']);
+Route::get('/AllAdministration', [AdministrationController::class, 'showAll']);
 
-Route::get('/title', [TitleController::class, 'showAll']);
-Route::get('/first_name', [FirstNameController::class, 'showAll']);
-Route::get('/middle_name', [MiddleNameController::class, 'showAll']);
-Route::get('/last_name', [LastNameController::class, 'showAll']);
+Route::get('/AllTitle', [TitleController::class, 'showAll']);
+Route::get('/AllFirst_name', [FirstNameController::class, 'showAll']);
+Route::get('/AllMiddle_name', [MiddleNameController::class, 'showAll']);
+Route::get('/AllLast_name', [LastNameController::class, 'showAll']);
 
-Route::get('/company', [CompanyController::class, 'showAll']);
-Route::get('/position', [PositionController::class, 'showAll']);
-Route::get('/images', [ImagesController::class, 'showAll']);
+Route::get('/AllPosition', [PositionController::class, 'showAll']);
 
-Route::get('/social_site', [SocialSiteController::class, 'showAll']);
-Route::get('/email', [EmailController::class, 'showAll']);
+Route::get('/AllConferences', [ConferenceController::class, 'showAll']);
+Route::get('/AllStages', [StageController::class, 'showAll']);
+Route::get('/AllTimeTables', [TimeTablesController::class, 'showAll']);
+Route::get('/AllPresentations', [PresentationsController::class, 'showAll']);
 
-Route::get('/conferences', [ConferenceController::class, 'showAll']);
-Route::get('/stages', [StageController::class, 'showAll']);
-Route::get('/time_tables', [TimeTablesController::class, 'showAll']);
-Route::get('/presentations', [PresentationsController::class, 'showAll']);
+Route::get('/AllCompany', [CompanyController::class, 'showAll']);
+Route::get('/AllImages', [ImagesController::class, 'showAll']);
+Route::get('/AllSocial_site', [SocialSiteController::class, 'showAll']);
+Route::get('/AllEmail', [EmailController::class, 'showAll']);
 
-Route::get('/speakers', [SpeakersController::class, 'showAll']);
-Route::get('/participants', [ParticipantsController::class, 'showAll']);
-Route::get('/said_about_us', [SaidAboutUsController::class, 'showAll']);
-Route::get('/sponsor', [SponsorController::class, 'showAll']);
-
-Route::get('/gallery', [GalleryController::class, 'showAll']);
+Route::get('/AllSpeakers', [SpeakersController::class, 'showAll']);
+Route::get('/AllParticipants', [ParticipantsController::class, 'showAll']);
+Route::get('/AllSaid_about_us', [SaidAboutUsController::class, 'showAll']);
+Route::get('/AllSponsor', [SponsorController::class, 'showAll']);
+Route::get('/AllGallery', [GalleryController::class, 'showAll']);
 
 
 

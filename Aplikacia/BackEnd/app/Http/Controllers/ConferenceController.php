@@ -10,7 +10,9 @@ class ConferenceController extends Controller
 
     public function showAll()
     {
-        return response()->json(Conference::all());
+        return Conference::get(
+            ['idConference', 'Title', 'Date', 'State', 'Comment', 'created_at', 'updated_at']
+        );
     }
 
 }

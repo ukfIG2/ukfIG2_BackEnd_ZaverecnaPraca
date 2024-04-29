@@ -9,19 +9,22 @@ class SponsorController extends Controller
 {
    public function showAll()
     {
-        $sponsors = Sponsor::with(['conference', 'image'])
-        ->get();
-
-        $sponsors->transform(function ($sponsor) {
-            $sponsor->Conference = $sponsor->conference->Title ?? null;
-            $sponsor->Image = $sponsor->image->Path_to ?? null;
-            $sponsor->Alt = $sponsor->image->ALT ?? null;
-
-            unset($sponsor->conference, $sponsor->image);
-
-            return $sponsor;
+        return Sponsor::get()->map(function ($sponsor) {
+            return [
+                'idSponsor' => $sponsor->idSponsor,
+                'Sponsor_name' => $sponsor->Sponsor_name,
+                'Url' => $sponsor->Url,
+                'Conference' => $sponsor->conference->Title,
+                'Comment' => $sponsor->Comment,
+                'Image' => $sponsor->image ? [
+                    'Title' => $sponsor->image->Title,
+                    'Path_to' => $sponsor->image->Path_to,
+                    'ALT' => $sponsor->image->ALT,
+                ] : null,
+                'created_at' => $sponsor->created_at,
+                'updated_at' => $sponsor->updated_at,
+            ];
         });
-
-        return response()->json($sponsors);
+                
     }
 }

@@ -6,8 +6,8 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Conference ID</th>
-            <th>Stage ID</th>
+            <th>Conference name</th>
+            <th>Stage name</th>
             <th>Start Time</th>
             <th>End Time</th>
             <th>Comment</th>
@@ -18,9 +18,9 @@
         </thead>
         <tbody>
           <tr v-for="timeTable in timeTables" :key="timeTable.idTime_tables">
-            <td>{{ timeTable.idTime_tables }}</td>
-            <td>{{ timeTable.idConference }}</td>
-            <td>{{ timeTable.idStage }}</td>
+            <td>{{ timeTable.idTimeTables }}</td>
+            <td>{{ timeTable.Conference_name }}</td>
+            <td>{{ timeTable.Stage_name }}</td>
             <td>{{ timeTable.Time_start }}</td>
             <td>{{ timeTable.Time_end }}</td>
             <td>{{ timeTable.Comment }}</td>
@@ -44,7 +44,7 @@ export default {
     };
   },
   created() {
-    axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/time_tables')
+    axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/AllTimeTables')
       .then(response => {
         this.timeTables = response.data;
       })

@@ -9,6 +9,7 @@ class LastNameController extends Controller
 {
     public function showAll()
     {
-        return Last_name::all();
+        return Last_name::get(
+            ['idLast_name', 'Last_name', 'created_at', 'updated_at']);
     }
 }

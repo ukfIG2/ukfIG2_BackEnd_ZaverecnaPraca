@@ -7,7 +7,7 @@
           <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Conference ID</th>
+            <th>Title of conference</th>
             <th>Comment</th>
             <th>Created At</th>
             <th>Updated At</th>
@@ -17,7 +17,7 @@
           <tr v-for="stage in stages" :key="stage.idStage">
             <td>{{ stage.idStage }}</td>
             <td>{{ stage.Name }}</td>
-            <td>{{ stage.idConference }}</td>
+            <td>{{ stage.Title_of_conference }}</td>
             <td>{{ stage.Comment }}</td>
             <td>{{ stage.created_at }}</td>
             <td>{{ stage.updated_at }}</td>
@@ -38,7 +38,7 @@ export default {
     };
   },
   created() {
-    axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/stages')
+    axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/AllStages')
       .then(response => {
         this.stages = response.data;
       })

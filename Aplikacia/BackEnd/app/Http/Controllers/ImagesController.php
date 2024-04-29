@@ -9,6 +9,7 @@ class ImagesController extends Controller
 {
     public function showAll()
     {
-        return Images::all();
+        return Images::get(
+            ['idImages', 'Title', 'Path_to', 'ALT', 'created_at', 'updated_at']);
     }
 }

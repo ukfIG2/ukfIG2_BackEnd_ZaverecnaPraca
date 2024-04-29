@@ -9,6 +9,7 @@ class CompanyController extends Controller
 {
     public function showAll()
     {
-        return Company::all();
+        return Company::get(
+            ['idCompany', 'Company_name', 'created_at', 'updated_at']);
     }
 }

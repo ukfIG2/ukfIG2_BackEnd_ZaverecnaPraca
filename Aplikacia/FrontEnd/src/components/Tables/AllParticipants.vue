@@ -1,37 +1,37 @@
 <template>
     <div class="border border-5 m-3">
-    <h2>Zaregistrovaný účastníci</h2>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Title</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Middle Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">Conference</th>
-          <th scope="col">Email</th>
-          <th scope="col">Token</th>
-          <th scope="col">Created At</th>
-          <th scope="col">Updated At</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="participant in participants" :key="participant.idParticipants">
-          <th scope="row">{{ participant.idParticipants }}</th>
-          <td>{{ participant.Short_title }}</td>
-          <td>{{ participant.First_name }}</td>
-          <td>{{ participant.Middle_name }}</td>
-          <td>{{ participant.Last_name }}</td>
-          <td>{{ participant.Conference }}</td>
-          <td>{{ participant.Email }}</td>
-          <td>{{ participant.Token }}</td>
-          <td>{{ participant.created_at }}</td>
-          <td>{{ participant.updated_at }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+        <h2>Zaregistrovaný účastníci</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Conference</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th>Token</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="participant in participants" :key="participant.Token">
+                    <td>{{ participant.idParticipants }}</td>
+                    <td>{{ participant.Short_title }}</td>
+                    <td>{{ participant.First_name }}</td>
+                    <td>{{ participant.Middle_name }}</td>
+                    <td>{{ participant.Last_name }}</td>
+                    <td>{{ participant.Email }}</td>
+                    <td>{{ participant.Conference }}</td>
+                    <td>{{ participant.created_at }}</td>
+                    <td>{{ participant.updated_at }}</td>
+                    <td class="text-break">{{ participant.Token }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 
 <script>
@@ -44,7 +44,7 @@ export default {
     };
   },
   async created() {
-    const response = await axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/participants');
+    const response = await axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/AllParticipants');
     this.participants = response.data;
   },
 };
