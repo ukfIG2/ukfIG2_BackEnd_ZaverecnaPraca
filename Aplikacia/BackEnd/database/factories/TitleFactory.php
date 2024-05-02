@@ -18,7 +18,7 @@ class TitleFactory extends Factory
     {
         return [
             'Title' => substr($this->faker->jobTitle, 0, 25),
-            'Short_title' => substr($this->faker->jobTitle, 0, 25),
+            'Short_title' => substr($this->faker->jobTitle, 0, 20),
         ];
     }
 }
