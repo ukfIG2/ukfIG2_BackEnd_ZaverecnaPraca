@@ -13,4 +13,5 @@ class AdministrationController extends Controller
             ['idAdministration', 'Login', 'Password', 
             'Comment', 'created_at', 'updated_at']);
     }
+    
 }

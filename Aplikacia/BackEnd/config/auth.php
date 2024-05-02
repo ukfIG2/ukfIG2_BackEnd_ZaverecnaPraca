@@ -35,11 +35,16 @@ return [
     |
     */
 
-    'guards' => [
+    /*'guards' => [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
-        ],
+        ],*/
+        'guards' => [
+            'web' => [
+                'driver' => 'session',
+                'provider' => 'administration',
+            ],
     ],
 
     /*
@@ -59,11 +64,16 @@ return [
     |
     */
 
-    'providers' => [
+    /*'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
-        ],
+        ],*/
+        'providers' => [
+            'administration' => [
+                'driver' => 'eloquent',
+                'model' => App\Models\Administration::class,
+            ],
 
         // 'users' => [
         //     'driver' => 'database',

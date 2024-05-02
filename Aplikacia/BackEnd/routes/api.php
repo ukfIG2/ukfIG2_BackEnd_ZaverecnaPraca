@@ -29,6 +29,8 @@ use App\Http\Controllers\SponsorController;
 
 use App\Http\Controllers\GalleryController;
 
+use App\Http\Controllers\API\RegisterController; //Sanctum
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -70,8 +72,13 @@ Route::get('/AllSponsor', [SponsorController::class, 'showAll']);
 Route::get('/AllGallery', [GalleryController::class, 'showAll']);
 
 
+Route::controller(RegisterController::class)->group(function () {
+    Route::post('/register', 'register');
+    Route::post('/login', 'login');
+});
 
 
+//    Route::post('/logout', 'RegisterController@logout');
 
 
 
