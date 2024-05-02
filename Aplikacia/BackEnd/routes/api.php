@@ -29,6 +29,8 @@ use App\Http\Controllers\SponsorController;
 
 use App\Http\Controllers\GalleryController;
 
+use App\Models\Administration;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
