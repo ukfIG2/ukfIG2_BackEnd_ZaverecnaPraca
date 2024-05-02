@@ -118,11 +118,11 @@ class FullOneConferenceSeeder extends Seeder
         Gallery::factory()->count(15)->create();
         Speakers::factory()->count(20)->create();
         Sponsor::factory()->count(5)->create();
-        Bridge_speakers_images::factory()->count(20)->create();
-        Bridge_presentations_speakers::factory()->count(20)->create();
+        //Bridge_speakers_images::factory()->count(20)->create();
+        //Bridge_presentations_speakers::factory()->count(20)->create();
         Participants::factory()->count(100)->create();
-        Bridge_presentations_participant::factory()->count(100)->create();
-        Bridge_speakers_social_sites::factory()->count(5)->create();
+        //Bridge_presentations_participant::factory()->count(100)->create();
+        //Bridge_speakers_social_sites::factory()->count(5)->create();
         Said_about_us::factory()->count(10)->create();
         Administration::factory()->count(5)->create();
         
