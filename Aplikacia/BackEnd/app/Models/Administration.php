@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Administration extends Model
+class Administration extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, HasApiTokens; #Notifiable
 
     protected $table = 'Administration';
 
@@ -19,7 +21,6 @@ class Administration extends Model
         'Comment',
     ];
 
-    // Make sure to hash the password when setting it
     public function setPasswordAttribute($value)
     {
         $this->attributes['Password'] = bcrypt($value);

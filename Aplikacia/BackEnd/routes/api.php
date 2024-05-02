@@ -69,7 +69,23 @@ Route::get('/AllSaid_about_us', [SaidAboutUsController::class, 'showAll']);
 Route::get('/AllSponsor', [SponsorController::class, 'showAll']);
 Route::get('/AllGallery', [GalleryController::class, 'showAll']);
 
+////////Tokens
+Route::post('/tokens/create', function (Request $request) {
+    $request->validate([
+        'login' => 'required',
+        'password' => 'required',
+    ]);
 
+    $admin = Administration::where('login', $request->login)->first();
+
+    if (!$admin || !Hash::check($request->password, $admin->password)) {
+        return response()->json(['error' => 'The provided credentials are incorrect.'], 401);
+    }
+
+    $token = $admin->createToken($request->login)->plainTextToken;
+
+    return ['token' => $token];
+});
 
 
 
