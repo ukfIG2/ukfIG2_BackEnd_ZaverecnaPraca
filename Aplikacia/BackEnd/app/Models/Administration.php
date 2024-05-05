@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Sanctum\HasApiTokens;
 
-class Administration extends Model
+
+class Administration extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, HasApiTokens;
 
     protected $table = 'Administration';
 
@@ -20,10 +23,10 @@ class Administration extends Model
     ];
 
     // Make sure to hash the password when setting it
-    public function setPasswordAttribute($value)
+    /*public function setPasswordAttribute($value)
     {
         $this->attributes['Password'] = bcrypt($value);
-    }
+    }*/
 
     protected $casts = [
         'created_at' => 'datetime:Y-m-d H:i:s',

@@ -108,6 +108,9 @@ import SaidAboutUs_table from '../components/Tables/AllSaidAboutUs.vue'
 import Sponsor_table from '../components/Tables/AllSponsor.vue'
 import Gallery_table from '../components/Tables/AllGallery.vue'
 
+import Login from '../components/login_register/Login.vue'
+import Register from '../components/login_register/Register.vue'
+import LogOut from '../components/login_register/LogOut.vue'
 // Define the component
 export default {
   components: {
@@ -135,6 +138,10 @@ export default {
     SaidAboutUs_table,
     Sponsor_table,
     Gallery_table,
+
+    Login,
+    Register,
+    LogOut,
     // Add other components as needed
   },
   data() {

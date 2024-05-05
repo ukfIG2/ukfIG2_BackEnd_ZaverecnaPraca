@@ -29,6 +29,8 @@ use App\Http\Controllers\SponsorController;
 
 use App\Http\Controllers\GalleryController;
 
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -69,6 +71,9 @@ Route::get('/AllSaid_about_us', [SaidAboutUsController::class, 'showAll']);
 Route::get('/AllSponsor', [SponsorController::class, 'showAll']);
 Route::get('/AllGallery', [GalleryController::class, 'showAll']);
 
+Route::post('/register', [UserController::class, 'register']);
+Route::post('/login', [UserController::class, 'login']);
+Route::post('/logout', [UserController::class, 'logout']);
 
 
 
