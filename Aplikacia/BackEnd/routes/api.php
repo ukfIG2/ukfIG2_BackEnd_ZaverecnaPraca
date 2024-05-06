@@ -49,8 +49,31 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:sanctum')->group(function () {
+    Route::middleware('auth:sanctum')->group(function () {
     Route::get('/AllAdministration', [AdministrationController::class, 'showAll']);
+
+    Route::get('/AllTitle', [TitleController::class, 'showAll']);
+    Route::get('/AllFirst_name', [FirstNameController::class, 'showAll']);
+    Route::get('/AllMiddle_name', [MiddleNameController::class, 'showAll']);
+    Route::get('/AllLast_name', [LastNameController::class, 'showAll']);
+
+    Route::get('/AllPosition', [PositionController::class, 'showAll']);
+
+    Route::get('/AllConferences', [ConferenceController::class, 'showAll']);
+    Route::get('/AllStages', [StageController::class, 'showAll']);
+    Route::get('/AllTimeTables', [TimeTablesController::class, 'showAll']);
+    Route::get('/AllPresentations', [PresentationsController::class, 'showAll']);
+
+    Route::get('/AllCompany', [CompanyController::class, 'showAll']);
+    Route::get('/AllImages', [ImagesController::class, 'showAll']);
+    Route::get('/AllSocial_site', [SocialSiteController::class, 'showAll']);
+    Route::get('/AllEmail', [EmailController::class, 'showAll']);
+
+    Route::get('/AllSpeakers', [SpeakersController::class, 'showAll']);
+    Route::get('/AllParticipants', [ParticipantsController::class, 'showAll']);
+    Route::get('/AllSaid_about_us', [SaidAboutUsController::class, 'showAll']);
+    Route::get('/AllSponsor', [SponsorController::class, 'showAll']);
+    Route::get('/AllGallery', [GalleryController::class, 'showAll']);
 
     if (Auth::check()) {
         Log::info('User is authenticated. User ID: ' . Auth::id());
@@ -59,59 +82,7 @@ Route::middleware('auth:sanctum')->group(function () {
     }
 });
 
-//Route::get('/AllAdministration', [AdministrationController::class, 'showAll']);
 
-Route::get('/AllTitle', [TitleController::class, 'showAll']);
-Route::get('/AllFirst_name', [FirstNameController::class, 'showAll']);
-Route::get('/AllMiddle_name', [MiddleNameController::class, 'showAll']);
-Route::get('/AllLast_name', [LastNameController::class, 'showAll']);
-
-Route::get('/AllPosition', [PositionController::class, 'showAll']);
-
-Route::get('/AllConferences', [ConferenceController::class, 'showAll']);
-Route::get('/AllStages', [StageController::class, 'showAll']);
-Route::get('/AllTimeTables', [TimeTablesController::class, 'showAll']);
-Route::get('/AllPresentations', [PresentationsController::class, 'showAll']);
-
-Route::get('/AllCompany', [CompanyController::class, 'showAll']);
-Route::get('/AllImages', [ImagesController::class, 'showAll']);
-Route::get('/AllSocial_site', [SocialSiteController::class, 'showAll']);
-Route::get('/AllEmail', [EmailController::class, 'showAll']);
-
-Route::get('/AllSpeakers', [SpeakersController::class, 'showAll']);
-Route::get('/AllParticipants', [ParticipantsController::class, 'showAll']);
-Route::get('/AllSaid_about_us', [SaidAboutUsController::class, 'showAll']);
-Route::get('/AllSponsor', [SponsorController::class, 'showAll']);
-Route::get('/AllGallery', [GalleryController::class, 'showAll']);
-
-/*Route::post('/register', [UserController::class, 'register']);
-Route::post('/login', [UserController::class, 'login']);
-Route::post('/logout', [UserController::class, 'logout']);
-*/
-
-
-/*
-Route::middleware('api')->group(function () {
-    Route::post('/register', [UserController::class, 'register']);
-    Route::post('/login', [UserController::class, 'login']);
-    Route::post('/logout', [UserController::class, 'logout']);
-});*/
-/*
-Route::middleware('web')->group(function () {
-    Route::post('/register', [UserController::class, 'register']);
-    Route::post('/login', [UserController::class, 'login']);
-    Route::post('/logout', [UserController::class, 'logout']);
-});
-*/
-
-/*
-Route::middleware(['web', 'auth'])->group(function () {
-    Route::post('/register', [UserController::class, 'register']);
-    Route::post('/login', [UserController::class, 'login']);
-    Route::post('/logout', [UserController::class, 'logout']);
-});
-
-*/
 Route::middleware('web')->group(function () {
     Route::post('/register', [UserController::class, 'register']);
     Route::post('/login', [UserController::class, 'login']);
