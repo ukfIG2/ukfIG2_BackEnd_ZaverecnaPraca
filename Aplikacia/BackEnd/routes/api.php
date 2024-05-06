@@ -30,7 +30,7 @@ use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\GalleryController;
 
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\static_pagesController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -80,9 +80,13 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::post('/register', [AdminController::class, 'register']);
 Route::post('/login', [AdminController::class, 'login']);
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AdminController::class, 'logout']);
 });
+
+
+Route::get('/getStaticPage/{id}', [static_pagesController::class, 'getTitleText']);
 
 
 
