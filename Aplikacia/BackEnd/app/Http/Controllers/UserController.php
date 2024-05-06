@@ -77,6 +77,8 @@ public function login(Request $request)
 
     if ($user && Hash::check($credentials['Password'], $user->Password)) {
         // The passwords match...
+        session(['user_id' => $user->idAdministration]);
+
         $response = [
             'success' => true,
             'message' => 'Logged in successfully',
@@ -94,16 +96,16 @@ public function login(Request $request)
     $response = response()->json($response);
 
     // Log the headers
-    Log::info($response->headers);
+    Log::info($response->headers->all());
 
-    return response()->json($response);
+    // Log the session data
+    Log::info('Session data: ' . print_r(session()->all(), true));
 
+    // Log the Set-Cookie header
+    Log::info($response->headers->get('Set-Cookie'));
 
+    return $response;
 }
-
-
-
-
 
     /**
      * Logout

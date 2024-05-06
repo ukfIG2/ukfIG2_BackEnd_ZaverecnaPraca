@@ -31,6 +31,9 @@ use App\Http\Controllers\GalleryController;
 
 use App\Http\Controllers\UserController;
 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -46,7 +49,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/AllAdministration', [AdministrationController::class, 'showAll']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/AllAdministration', [AdministrationController::class, 'showAll']);
+
+    if (Auth::check()) {
+        Log::info('User is authenticated. User ID: ' . Auth::id());
+    } else {
+        Log::warning('User is not authenticated API.');
+    }
+});
+
+//Route::get('/AllAdministration', [AdministrationController::class, 'showAll']);
 
 Route::get('/AllTitle', [TitleController::class, 'showAll']);
 Route::get('/AllFirst_name', [FirstNameController::class, 'showAll']);
@@ -71,9 +84,42 @@ Route::get('/AllSaid_about_us', [SaidAboutUsController::class, 'showAll']);
 Route::get('/AllSponsor', [SponsorController::class, 'showAll']);
 Route::get('/AllGallery', [GalleryController::class, 'showAll']);
 
-Route::post('/register', [UserController::class, 'register']);
+/*Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/logout', [UserController::class, 'logout']);
+*/
+
+
+/*
+Route::middleware('api')->group(function () {
+    Route::post('/register', [UserController::class, 'register']);
+    Route::post('/login', [UserController::class, 'login']);
+    Route::post('/logout', [UserController::class, 'logout']);
+});*/
+/*
+Route::middleware('web')->group(function () {
+    Route::post('/register', [UserController::class, 'register']);
+    Route::post('/login', [UserController::class, 'login']);
+    Route::post('/logout', [UserController::class, 'logout']);
+});
+*/
+
+/*
+Route::middleware(['web', 'auth'])->group(function () {
+    Route::post('/register', [UserController::class, 'register']);
+    Route::post('/login', [UserController::class, 'login']);
+    Route::post('/logout', [UserController::class, 'logout']);
+});
+
+*/
+Route::middleware('web')->group(function () {
+    Route::post('/register', [UserController::class, 'register']);
+    Route::post('/login', [UserController::class, 'login']);
+    Route::post('/logout', [UserController::class, 'logout']);
+});
+
+
+
 
 
 

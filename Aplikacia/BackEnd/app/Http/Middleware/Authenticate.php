@@ -2,16 +2,45 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
-use Illuminate\Http\Request;
+use Closure;
+use App\Models\Administration;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
-class Authenticate extends Middleware
+class Authenticate
 {
-    /**
-     * Get the path the user should be redirected to when they are not authenticated.
-     */
-    protected function redirectTo(Request $request): ?string
+    
+public function handle($request, Closure $next)
+{
+    // Log the current route
+    Log::info('Authenticate middleware executed for route: ' . $request->path());
+
+    $user_id = session('user_id');
+
+    if ($user_id) {
+        $user = Administration::find($user_id);
+
+        if ($user) {
+            Auth::login($user);
+            if ($user) {
+                Auth::login($user);
+                Log::info('User authorized: ' . $user->name); // Add log statement to log the authorization
+            }
+        } else {
+            return $this->unauthenticated($request, ['auth']);
+        }
+    } else {
+        return $this->unauthenticated($request, ['auth']);
+    }
+
+    return $next($request);
+}
+
+
+    protected function unauthenticated($request, array $guards)
     {
-        return $request->expectsJson() ? null : route('login');
+        return $request->expectsJson()
+            ? response()->json(['message' => 'Unauthenticated.'], 401)
+            : redirect()->guest(route('login'));
     }
 }
