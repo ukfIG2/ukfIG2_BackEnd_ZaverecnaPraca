@@ -30,6 +30,7 @@
 
 <script>
 import axios from 'axios';
+import { useAuthStore } from '@/stores/authStore';
 
 export default {
   data() {
@@ -38,7 +39,12 @@ export default {
     };
   },
   async created() {
-    const response = await axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/AllAdministration');
+    const authStore = useAuthStore();
+    const response = await axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/AllAdministration', {
+      headers: {
+        Authorization: `Bearer ${authStore.$state.token}`
+      }
+    });
     this.admins = response.data;
   },
 };

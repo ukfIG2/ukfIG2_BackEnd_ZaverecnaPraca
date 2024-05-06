@@ -29,6 +29,8 @@ use App\Http\Controllers\SponsorController;
 
 use App\Http\Controllers\GalleryController;
 
+use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -44,31 +46,43 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/AllAdministration', [AdministrationController::class, 'showAll']);
+//Route::get('/AllAdministration', [AdministrationController::class, 'showAll']);
 
-Route::get('/AllTitle', [TitleController::class, 'showAll']);
-Route::get('/AllFirst_name', [FirstNameController::class, 'showAll']);
-Route::get('/AllMiddle_name', [MiddleNameController::class, 'showAll']);
-Route::get('/AllLast_name', [LastNameController::class, 'showAll']);
 
-Route::get('/AllPosition', [PositionController::class, 'showAll']);
+Route::middleware('auth:sanctum')->group(function () {
 
-Route::get('/AllConferences', [ConferenceController::class, 'showAll']);
-Route::get('/AllStages', [StageController::class, 'showAll']);
-Route::get('/AllTimeTables', [TimeTablesController::class, 'showAll']);
-Route::get('/AllPresentations', [PresentationsController::class, 'showAll']);
+    Route::get('/AllAdministration', [AdministrationController::class, 'showAll']);
 
-Route::get('/AllCompany', [CompanyController::class, 'showAll']);
-Route::get('/AllImages', [ImagesController::class, 'showAll']);
-Route::get('/AllSocial_site', [SocialSiteController::class, 'showAll']);
-Route::get('/AllEmail', [EmailController::class, 'showAll']);
 
-Route::get('/AllSpeakers', [SpeakersController::class, 'showAll']);
-Route::get('/AllParticipants', [ParticipantsController::class, 'showAll']);
-Route::get('/AllSaid_about_us', [SaidAboutUsController::class, 'showAll']);
-Route::get('/AllSponsor', [SponsorController::class, 'showAll']);
-Route::get('/AllGallery', [GalleryController::class, 'showAll']);
+    Route::get('/AllTitle', [TitleController::class, 'showAll']);
+    Route::get('/AllFirst_name', [FirstNameController::class, 'showAll']);
+    Route::get('/AllMiddle_name', [MiddleNameController::class, 'showAll']);
+    Route::get('/AllLast_name', [LastNameController::class, 'showAll']);
 
+    Route::get('/AllPosition', [PositionController::class, 'showAll']);
+
+    Route::get('/AllConferences', [ConferenceController::class, 'showAll']);
+    Route::get('/AllStages', [StageController::class, 'showAll']);
+    Route::get('/AllTimeTables', [TimeTablesController::class, 'showAll']);
+    Route::get('/AllPresentations', [PresentationsController::class, 'showAll']);
+
+    Route::get('/AllCompany', [CompanyController::class, 'showAll']);
+    Route::get('/AllImages', [ImagesController::class, 'showAll']);
+    Route::get('/AllSocial_site', [SocialSiteController::class, 'showAll']);
+    Route::get('/AllEmail', [EmailController::class, 'showAll']);
+
+    Route::get('/AllSpeakers', [SpeakersController::class, 'showAll']);
+    Route::get('/AllParticipants', [ParticipantsController::class, 'showAll']);
+    Route::get('/AllSaid_about_us', [SaidAboutUsController::class, 'showAll']);
+    Route::get('/AllSponsor', [SponsorController::class, 'showAll']);
+    Route::get('/AllGallery', [GalleryController::class, 'showAll']);
+});
+
+Route::post('/register', [AdminController::class, 'register']);
+Route::post('/login', [AdminController::class, 'login']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AdminController::class, 'logout']);
+});
 
 
 

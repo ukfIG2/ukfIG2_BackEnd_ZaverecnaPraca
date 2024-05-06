@@ -22,8 +22,9 @@
   </div>
 </template>
 
-<script >
+<script>
 import axios from 'axios';
+import { useAuthStore } from '@/stores/authStore'; // adjust the path according to your project structure
 
 export default {
   data() {
@@ -32,7 +33,12 @@ export default {
     };
   },
   async created() {
-    const response = await axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/AllCompany');
+    const authStore = useAuthStore();
+    const response = await axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/AllCompany', {
+      headers: {
+        'Authorization': `Bearer ${authStore.token}`
+      }
+    });
     this.records = response.data;
   },
 };

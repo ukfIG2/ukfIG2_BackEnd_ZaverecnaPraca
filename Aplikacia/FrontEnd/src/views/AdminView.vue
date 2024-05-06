@@ -108,6 +108,9 @@ import SaidAboutUs_table from '../components/Tables/AllSaidAboutUs.vue'
 import Sponsor_table from '../components/Tables/AllSponsor.vue'
 import Gallery_table from '../components/Tables/AllGallery.vue'
 
+import AdminRegister from '../components/Admin/register.vue'
+import AdminLogin from '../components/Admin/login.vue'
+import AdminLogout from '../components/Admin/logout.vue'
 // Define the component
 export default {
   components: {
@@ -135,6 +138,11 @@ export default {
     SaidAboutUs_table,
     Sponsor_table,
     Gallery_table,
+
+    AdminRegister,
+    AdminLogin,
+    AdminLogout
+
     // Add other components as needed
   },
   data() {
