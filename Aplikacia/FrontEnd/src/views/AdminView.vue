@@ -111,7 +111,11 @@ import Gallery_table from '../components/Tables/AllGallery.vue'
 import AdminRegister from '../components/Admin/register.vue'
 import AdminLogin from '../components/Admin/login.vue'
 import AdminLogout from '../components/Admin/logout.vue'
+
+import Editor from '../components/Editor.vue'
+
 // Define the component
+
 export default {
   components: {
     Administration_table,
@@ -141,7 +145,9 @@ export default {
 
     AdminRegister,
     AdminLogin,
-    AdminLogout
+    AdminLogout,
+
+    Editor,
 
     // Add other components as needed
   },
