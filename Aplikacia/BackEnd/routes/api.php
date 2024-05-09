@@ -31,6 +31,8 @@ use App\Http\Controllers\GalleryController;
 
 use App\Http\Controllers\AdminController;
 
+use App\Http\Controllers\staticPagesController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -77,6 +79,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/AllSponsor', [SponsorController::class, 'showAll']);
     Route::get('/AllGallery', [GalleryController::class, 'showAll']);
 });
+
+
+Route::get('/static-pages/{name}', [StaticPagesController::class, 'getText']);
+Route::post('/static-pages/{name}', [StaticPagesController::class, 'putText']);
 
 Route::post('/register', [AdminController::class, 'register']);
 Route::post('/login', [AdminController::class, 'login']);

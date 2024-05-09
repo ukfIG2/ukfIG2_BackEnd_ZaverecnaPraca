@@ -10,6 +10,7 @@
 
 <script>
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import axios from 'axios'; // Import axios
 
 let editorInstance = null;
 
@@ -25,14 +26,26 @@ export default {
       });
   },
   methods: {
-    loadText() {
+    async loadText() {
       if (editorInstance) {
-        editorInstance.setData('<p>New text to load.</p>\n<p>Another paragraph.</p>');
+        try {
+          const response = await axios.get('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/static-pages/nieco');
+          editorInstance.setData(response.data);
+        } catch (error) {
+          console.error('There was a problem loading the text.', error);
+        }
       }
     },
-    showHtml() {
+    async showHtml() {
       if (editorInstance) {
-        alert(editorInstance.getData());
+        try {
+          const response = await axios.post('http://localhost/ukfIG2_BackEnd_ZaverecnaPraca/Aplikacia/BackEnd/public/api/static-pages/nieco', {
+  text: editorInstance.getData()
+});
+          alert('Data sent successfully.');
+        } catch (error) {
+          console.error('There was a problem sending the data.', error);
+        }
       }
     }
   }
